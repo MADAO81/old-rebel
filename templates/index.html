@@ -1,58 +1,57 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old Rebel — Энциклопедия Dyna</title>
-    <style>
-        body {
-            background-color: #111;
-            color: #ddd;
-            font-family: sans-serif;
-            padding: 20px;
-        }
-        .card {
-            background-color: #1e1e1e;
-            border: 1px solid #b8860b;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px;
-            width: 250px;
-            display: inline-block;
-            vertical-align: top;
-        }
-        .card h2 {
-            color: #b8860b;
-            font-size: 1.4em;
-        }
-        .card p {
-            color: #aaa;
-        }
-        .card a {
-            color: #b8860b;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .card a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>🏍️ Old Rebel</h1>
-    <p>Энциклопедия Harley-Davidson Dyna и её предшественников</p>
-    <hr>
 
-    {% for bike in bikes %}
-    <div class="card">
-        <h2>{{ bike.name }}</h2>
-        <p><strong>Код:</strong> {{ bike.code }}</p>
-        <p><strong>Годы:</strong> {{ bike.years }}</p>
-        <p><strong>Двигатель:</strong> {{ bike.engine }}</p>
-        <p>{{ bike.description|truncatechars:100 }}</p>
-        <p><a href="/bikes/{{ bike.slug }}/">Подробнее →</a></p>
-    </div>
-    {% empty %}
-    <p>Пока нет ни одного мотоцикла в базе. Добавь их через админку!</p>
-    {% endfor %}
+    <!-- Эффект потёртости (винтаж) -->
+    <div class="vintage-overlay"></div>
+
+    <!-- ШАПКА С ЧЕРЕПАМИ -->
+    <header class="rebel-header">
+        <div class="skull-row">
+            {% for i in "1234567890123" %}
+                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
+            {% endfor %}
+        </div>
+        <h1>OLD REBEL</h1>
+        <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
+        <hr>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main>
+        <h2>Энциклопедия Harley-Davidson Dyna и её предшественников</h2>
+        <div class="bike-grid">
+            {% for bike in bikes %}
+            <div class="bike-card">
+                <h3>{{ bike.name }}</h3>
+                <p><strong>Код:</strong> {{ bike.code }}</p>
+                <p><strong>Годы:</strong> {{ bike.years }}</p>
+                <p><strong>Двигатель:</strong> {{ bike.engine }}</p>
+                <p>{{ bike.description|truncatechars:100 }}</p>
+                <a href="/bikes/{{ bike.slug }}/">Подробнее →</a>
+            </div>
+            {% empty %}
+            <p class="empty-message">Пока нет ни одного мотоцикла в базе. Добавь их через админку!</p>
+            {% endfor %}
+        </div>
+    </main>
+
+    <!-- ПОДВАЛ С ЧЕРЕПАМИ -->
+    <footer>
+        <div class="skull-row">
+            {% for i in "1234567890123" %}
+                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon" style="width: 30px; opacity: 0.5;">
+            {% endfor %}
+        </div>
+        <p>© 2026 Old Rebel. Все права защищены.</p>
+    </footer>
+
 </body>
 </html>
