@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ bike.name }} — Old Rebel</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #ddd;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #b8860b;
+        }
+        .back-link {
+            color: #b8860b;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .info {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #b8860b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Назад к списку</a>
+        <h1>{{ bike.name }}</h1>
+        <div class="info">
+            <p><strong>Код модели:</strong> {{ bike.code }}</p>
+            <p><strong>Годы выпуска:</strong> {{ bike.years }}</p>
+            <p><strong>Двигатель:</strong> {{ bike.engine }}</p>
+            <p><strong>Описание:</strong></p>
+            <p>{{ bike.description|linebreaks }}</p>
+            {% if bike.is_predecessor %}
+                <p style="color: #b8860b;">⚡ Это предшественник Dyna</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

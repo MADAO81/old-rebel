@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Old Rebel — Энциклопедия Dyna</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #ddd;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #b8860b;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 250px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .card h2 {
+            color: #b8860b;
+            font-size: 1.4em;
+        }
+        .card p {
+            color: #aaa;
+        }
+        .card a {
+            color: #b8860b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏍️ Old Rebel</h1>
+    <p>Энциклопедия Harley-Davidson Dyna и её предшественников</p>
+    <hr>
+
+    {% for bike in bikes %}
+    <div class="card">
+        <h2>{{ bike.name }}</h2>
+        <p><strong>Код:</strong> {{ bike.code }}</p>
+        <p><strong>Годы:</strong> {{ bike.years }}</p>
+        <p><strong>Двигатель:</strong> {{ bike.engine }}</p>
+        <p>{{ bike.description|truncatechars:100 }}</p>
+        <p><a href="/bikes/{{ bike.slug }}/">Подробнее →</a></p>
+    </div>
+    {% empty %}
+    <p>Пока нет ни одного мотоцикла в базе. Добавь их через админку!</p>
+    {% endfor %}
+</body>
+</html>
