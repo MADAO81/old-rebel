@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Модельный ряд — Old Rebel{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #b22222; text-align: center;">МОДЕЛЬНЫЙ РЯД</h2>
+    <p style="text-align: center; color: #888; margin-bottom: 30px;">Все модели семейства FX и Dyna в хронологическом порядке</p>
+
+    <div class="bike-grid">
+        {% for bike in bikes %}
+        <div class="bike-card">
+            <h3>{{ bike.name }}</h3>
+            <p><strong>Код:</strong> {{ bike.code }}</p>
+            <p><strong>Годы:</strong> {{ bike.years }}</p>
+            <p><strong>Двигатель:</strong> {{ bike.engine }}</p>
+            <p>{{ bike.description|truncatechars:100 }}</p>
+            <a href="/bikes/{{ bike.slug }}/">Подробнее →</a>
+        </div>
+        {% empty %}
+        <p style="color: #888;">Пока нет ни одного мотоцикла в базе. Добавь их через админку!</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

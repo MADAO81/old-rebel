@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Old Rebel{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Винтажный шум -->
+    <div class="vintage-overlay"></div>
+
+    <!-- ШАПКА -->
+    <header class="rebel-header">
+        <div class="skull-row">
+            {% for i in "1234567890123" %}
+                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
+            {% endfor %}
+        </div>
+        <h1>OLD REBEL</h1>
+        <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
+        <hr>
+
+        <!-- МЕНЮ -->
+        <nav class="main-nav">
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'about' %}">О проекте</a>
+            <a href="{% url 'models' %}">Модели</a>
+            <a href="{% url 'history' %}">История</a>
+            <a href="#">Блог</a>
+        </nav>
+    </header>
+
+    <!-- КОНТЕНТ -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="skull-row">
+            {% for i in "1234567890123" %}
+                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon" style="width: 30px; opacity: 0.6;">
+            {% endfor %}
+        </div>
+        <p>© 2026 Old Rebel. Все права защищены.</p>
+    </footer>
+</body>
+</html>

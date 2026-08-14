@@ -1,57 +1,184 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Rebel — Энциклопедия Dyna</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
 
-    <!-- Эффект потёртости (винтаж) -->
-    <div class="vintage-overlay"></div>
+{% block title %}Главная — Old Rebel{% endblock %}
 
-    <!-- ШАПКА С ЧЕРЕПАМИ -->
-    <header class="rebel-header">
-        <div class="skull-row">
-            {% for i in "1234567890123" %}
-                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
-            {% endfor %}
+{% block content %}
+
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
+
+    <!-- ВИНТАЖНЫЙ ЗАГОЛОВОК (исправленный) -->
+    <div style="text-align: center; margin: 10px 0 15px;">
+        <h2 style="
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            color: #b22222;
+            text-shadow:
+                0 0 20px rgba(178, 34, 34, 0.2),
+                2px 2px 0 #0d0e0f,
+                3px 3px 0 rgba(0,0,0,0.5);
+            opacity: 0.9;
+            margin: 0 auto;
+            padding: 8px 20px;
+            background: #121212;
+            border: 1px solid #b22222;
+            border-radius: 4px;
+            display: block;
+            width: fit-content;
+            max-width: 90%;
+            position: relative;
+        ">
+            ДОБРО ПОЖАЛОВАТЬ В МИР DYNA
+            <!-- Эффект потёртости -->
+            <div style="
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05) 0%, transparent 60%);
+                pointer-events: none;
+                border-radius: 4px;
+            "></div>
+            <!-- Имитация царапин -->
+            <div style="
+                position: absolute;
+                top: 10%; left: 5%;
+                width: 90%; height: 80%;
+                background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.02) 20px, rgba(0,0,0,0.02) 21px);
+                pointer-events: none;
+                border-radius: 4px;
+            "></div>
+        </h2>
+    </div>
+
+    <!-- ЦИТАТА В СТИЛЕ СТАРОЙ ПЕЧАТИ -->
+    <div style="
+        background: #1a1c1e;
+        padding: 25px 30px;
+        border-radius: 8px;
+        border-left: 6px solid #b22222;
+        margin: 20px 0 30px;
+        position: relative;
+        box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    ">
+        <!-- Эффект старой бумаги -->
+        <div style="
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.05 0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.4"/></svg>');
+            opacity: 0.15;
+            pointer-events: none;
+            border-radius: 8px;
+        "></div>
+        <p style="
+            color: #d4c9b8;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            font-style: italic;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            text-shadow: 0 0 20px rgba(180, 150, 120, 0.1);
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        ">
+            «Семейство Dyna — это не просто мотоциклы. Это история свободы, бунта и железа,
+            которая началась с эскиза на салфетке и закончилась легендой. Здесь нет маркетинга.
+            Есть только факты, эмоции и уважение к культуре.»
+        </p>
+    </div>
+
+    <!-- БЛОК С ФОТО (с винтажной рамкой) -->
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0;">
+        <div style="
+            background: #1a1c1e;
+            width: 100%; max-width: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border: 2px solid #b22222;
+            padding: 20px 0;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        ">
+            📸 ФОТОГРАФИЯ 1
         </div>
-        <h1>OLD REBEL</h1>
-        <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
-        <hr>
-    </header>
-
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <main>
-        <h2>Энциклопедия Harley-Davidson Dyna и её предшественников</h2>
-        <div class="bike-grid">
-            {% for bike in bikes %}
-            <div class="bike-card">
-                <h3>{{ bike.name }}</h3>
-                <p><strong>Код:</strong> {{ bike.code }}</p>
-                <p><strong>Годы:</strong> {{ bike.years }}</p>
-                <p><strong>Двигатель:</strong> {{ bike.engine }}</p>
-                <p>{{ bike.description|truncatechars:100 }}</p>
-                <a href="/bikes/{{ bike.slug }}/">Подробнее →</a>
-            </div>
-            {% empty %}
-            <p class="empty-message">Пока нет ни одного мотоцикла в базе. Добавь их через админку!</p>
-            {% endfor %}
+        <div style="
+            background: #1a1c1e;
+            width: 100%; max-width: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border: 2px solid #b22222;
+            padding: 20px 0;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        ">
+            📸 ФОТОГРАФИЯ 2
         </div>
-    </main>
+    </div>
 
-    <!-- ПОДВАЛ С ЧЕРЕПАМИ -->
-    <footer>
-        <div class="skull-row">
-            {% for i in "1234567890123" %}
-                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon" style="width: 30px; opacity: 0.5;">
-            {% endfor %}
+    <!-- ТЕКСТ ИСТОРИИ (как старая газетная колонка) -->
+    <section style="margin-top: 30px; background: #14181c; padding: 25px; border-radius: 8px; border: 1px solid #2a2c2e;">
+        <h3 style="
+            color: #c0b090;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            letter-spacing: 3px;
+            font-size: 1.6rem;
+            border-bottom: 2px solid #b22222;
+            padding-bottom: 10px;
+            margin-top: 0;
+        ">ИСТОРИЯ</h3>
+        <div style="columns: 2 300px; column-gap: 30px; color: #aaa; line-height: 1.7; font-size: 1rem;">
+            <p style="margin-top: 0;">
+                В 1971 году Вилли Г. Дэвидсон нарисовал на салфетке эскиз, который изменил всё.
+                Так родился Super Glide — первый мотоцикл, который соединил в себе элементы
+                кастомайзинга и заводского производства. Это стало началом семейства FX,
+                которое в 1991 году превратилось в легендарную Dyna.
+            </p>
+            <p>
+                Dyna — это не просто байк. Это характер. Это резиновая подвеска, рёв V-Twin
+                и свобода, которую невозможно купить. Сайт Old Rebel — это дань уважения
+                этому семейству и его культуре.
+            </p>
         </div>
-        <p>© 2026 Old Rebel. Все права защищены.</p>
-    </footer>
+    </section>
 
-</body>
-</html>
+    <!-- КНОПКА "СМОТРЕТЬ ВСЕ МОДЕЛИ" (винтажная) -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'models' %}" style="
+            display: inline-block;
+            background: transparent;
+            color: #b22222;
+            padding: 12px 40px;
+            border: 2px solid #b22222;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(180deg, rgba(178,34,34,0.05) 0%, transparent 100%);
+            text-shadow: 0 0 20px rgba(178,34,34,0.2);
+            box-shadow: inset 0 0 30px rgba(178,34,34,0.05);
+        "
+        onmouseover="this.style.background='#b22222'; this.style.color='#fff'; this.style.boxShadow='0 0 40px rgba(178,34,34,0.4)';"
+        onmouseout="this.style.background='transparent'; this.style.color='#b22222'; this.style.boxShadow='inset 0 0 30px rgba(178,34,34,0.05)';"
+        >
+            СМОТРЕТЬ ВСЕ МОДЕЛИ →
+        </a>
+    </div>
+</div>
+
+{% endblock %}

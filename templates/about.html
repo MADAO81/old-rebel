@@ -1,41 +1,25 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>О проекте — Old Rebel</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
 
-    <div class="vintage-overlay"></div>
+{% block title %}О проекте — Old Rebel{% endblock %}
 
-    <header class="rebel-header">
-        <div class="skull-row">
-            {% for i in "1234567890123" %}
-                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
-            {% endfor %}
+{% block content %}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; position: relative;">
+
+    <!-- МАЛЕНЬКИЙ ФЛАГ С ПОДСКАЗКОЙ -->
+    <div class="about-flag-wrapper">
+        <img src="{% static 'img/confederate-flag.svg' %}" alt="Флаг Конфедерации" style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 0 15px rgba(178, 34, 34, 0.3);">
+
+        <!-- ВСПЛЫВАЮЩАЯ ПОДСКАЗКА С ТЕКСТОМ ПЕСНИ -->
+        <div class="flag-tooltip" style="white-space: normal; max-width: 300px; text-align: center; font-size: 12px; line-height: 1.4; padding: 10px 15px;">
+            "Oh, I'm a good old rebel, now that's just what I am..."
         </div>
-        <h1>OLD REBEL</h1>
-        <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
-        <hr>
-    </header>
+    </div>
 
-    <main style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #b22222; text-align: center;">О ПРОЕКТЕ</h2>
 
-        <h2 style="color: #b22222; text-align: center;">О ПРОЕКТЕ</h2>
-
-        <!-- НАШ НОВЫЙ ФЛАГ -->
-        <div class="confederate-flag">
-            <div class="flag-stripe white" style="padding: 10px 0;"></div>
-            <div class="flag-canton" style="margin: 0 auto;">
-                {% for i in "1234567890123" %}
-                    <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
-                {% endfor %}
-            </div>
-            <div class="flag-stripe white" style="padding: 10px 0;"></div>
-        </div>
-
+    <div style="margin-top: 20px;">
         <section>
             <h3 style="color: #c0b090;">Кто я</h3>
             <p>...Твой текст про себя...</p>
@@ -50,17 +34,7 @@
             <h3 style="color: #c0b090;">Мой Fat Bob 2015</h3>
             <p>...Твой текст про мотоцикл...</p>
         </section>
+    </div>
+</div>
 
-    </main>
-
-    <footer>
-        <div class="skull-row">
-            {% for i in "1234567890123" %}
-                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon" style="width: 30px; opacity: 0.6;">
-            {% endfor %}
-        </div>
-        <p>© 2026 Old Rebel. Все права защищены.</p>
-    </footer>
-
-</body>
-</html>
+{% endblock %}
