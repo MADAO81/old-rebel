@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О проекте — Old Rebel</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="vintage-overlay"></div>
+
+    <header class="rebel-header">
+        <div class="skull-row">
+            {% for i in "1234567890123" %}
+                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
+            {% endfor %}
+        </div>
+        <h1>OLD REBEL</h1>
+        <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
+        <hr>
+    </header>
+
+    <main style="max-width: 800px; margin: 0 auto; padding: 20px;">
+
+        <h2 style="color: #b22222; text-align: center;">О ПРОЕКТЕ</h2>
+
+        <!-- НАШ НОВЫЙ ФЛАГ -->
+        <div class="confederate-flag">
+            <div class="flag-stripe white" style="padding: 10px 0;"></div>
+            <div class="flag-canton" style="margin: 0 auto;">
+                {% for i in "1234567890123" %}
+                    <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
+                {% endfor %}
+            </div>
+            <div class="flag-stripe white" style="padding: 10px 0;"></div>
+        </div>
+
+        <section>
+            <h3 style="color: #c0b090;">Кто я</h3>
+            <p>...Твой текст про себя...</p>
+        </section>
+
+        <section>
+            <h3 style="color: #c0b090;">Почему old-rebel</h3>
+            <p>...Твой текст про ржавую клетку и Johnny Cash...</p>
+        </section>
+
+        <section>
+            <h3 style="color: #c0b090;">Мой Fat Bob 2015</h3>
+            <p>...Твой текст про мотоцикл...</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="skull-row">
+            {% for i in "1234567890123" %}
+                <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon" style="width: 30px; opacity: 0.6;">
+            {% endfor %}
+        </div>
+        <p>© 2026 Old Rebel. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
