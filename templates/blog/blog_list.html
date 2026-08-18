@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Блог — Old Rebel{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #b22222; text-align: center; font-family: 'Impact', sans-serif; letter-spacing: 4px;">
+        БЛОГ ЕВГЕНИЯ ЧЕ
+    </h2>
+    <p style="text-align: center; color: #888; font-style: italic; margin-bottom: 30px;">
+        "I'm gonna break my rusty cage... and run. — Johnny Cash"
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        {% for post in posts %}
+        <div style="background: #1a1c1e; border: 1px solid #2a2c2e; border-radius: 8px; padding: 20px; width: 280px; border-top: 4px solid #b22222;">
+            <div style="color: #b22222; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px;">
+                {{ post.get_category_display }}
+            </div>
+            <h3 style="color: #c0b090; font-size: 1.2rem; margin: 5px 0;">
+                {{ post.title }}
+            </h3>
+            <p style="color: #888; font-size: 0.85rem; margin: 5px 0 10px 0;">
+                {{ post.preview|truncatechars:80 }}
+            </p>
+            <a href="{% url 'blog_detail' post.slug %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; letter-spacing: 1px;">Читать →</a>
+        </div>
+        {% empty %}
+        <p style="color: #888;">Пока нет ни одной записи. Но они обязательно появятся.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

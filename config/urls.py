@@ -9,4 +9,5 @@ urlpatterns = [
     path('history/', history, name='history'),
     path('models/', models_list, name='models'),
     path('bikes/', include('bikes.urls')),
+    path('blog/', include('blog.urls')),
 ]
