@@ -13,3 +13,6 @@ def history(request):
 def models_list(request):
     bikes = Bike.objects.all().order_by('years')
     return render(request, 'models.html', {'bikes': bikes})
+
+def comparison(request):
+    return render(request, 'comparison.html')
