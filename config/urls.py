@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from pages.views import index, about, history, models_list, comparison
+from pages.views import index, about, history, models_list, comparison, soa
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('bikes/', include('bikes.urls')),
     path('blog/', include('blog.urls')),
     path('comparison/', comparison, name='comparison'),
+    path('soa/', soa, name='soa'),
 ]

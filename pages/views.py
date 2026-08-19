@@ -16,3 +16,6 @@ def models_list(request):
 
 def comparison(request):
     return render(request, 'comparison.html')
+
+def soa(request):
+    return render(request, 'soa.html')
