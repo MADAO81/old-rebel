@@ -8,7 +8,20 @@
 <div style="max-width: 900px; margin: 0 auto; padding: 20px;">
 
     <!-- ХЛЕБНЫЕ КРОШКИ -->
-    {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 10px;
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 20px;
+        padding: 8px 0;
+        border-bottom: 1px solid #2a2c2e;
+    ">
+        <a href="{% url 'index' %}" style="color: #b22222; text-decoration: none;">Главная</a>
+        <span style="color: #444;">/</span>
+        <span style="color: #888;">Блог</span>
+    </div>
 
     <h2 style="color: #b22222; text-align: center; font-family: 'Impact', sans-serif; letter-spacing: 4px;">
         БЛОГ ЕВГЕНИЯ ЧЕ
