@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from pages.views import index, about, history, models_list, comparison, soa
+from pages.views import index, about, history, models_list, comparison, soa, legal
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -12,4 +13,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('comparison/', comparison, name='comparison'),
     path('soa/', soa, name='soa'),
+    path('legal/', legal, name='legal'),
 ]

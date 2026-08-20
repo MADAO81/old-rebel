@@ -19,3 +19,6 @@ def comparison(request):
 
 def soa(request):
     return render(request, 'soa.html')
+
+def legal(request):
+    return render(request, 'legal.html')
