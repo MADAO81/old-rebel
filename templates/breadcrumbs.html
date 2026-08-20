@@ -1,0 +1,22 @@
+<div style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 10px;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 8px 0;
+    border-bottom: 1px solid #2a2c2e;
+">
+    <a href="{% url 'index' %}" style="color: #b22222; text-decoration: none;">Главная</a>
+    <span style="color: #444;">/</span>
+
+    {% for crumb in breadcrumbs %}
+        {% if forloop.last %}
+            <span style="color: #888;">{{ crumb.name }}</span>
+        {% else %}
+            <a href="{{ crumb.url }}" style="color: #b22222; text-decoration: none;">{{ crumb.name }}</a>
+            <span style="color: #444;">/</span>
+        {% endif %}
+    {% endfor %}
+</div>

@@ -7,6 +7,9 @@
 
 <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
 
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
+
     <div style="margin-bottom: 20px; font-size: 0.9rem; color: #666;">
         <a href="{% url 'blog_index' %}" style="color: #b22222; text-decoration: none;">Блог</a>
         <span style="color: #444;"> / </span>

@@ -7,11 +7,12 @@
 
 <div style="max-width: 800px; margin: 0 auto; padding: 20px; position: relative;">
 
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
+
     <!-- МАЛЕНЬКИЙ ФЛАГ С ПОДСКАЗКОЙ -->
     <div class="about-flag-wrapper">
         <img src="{% static 'img/confederate-flag.svg' %}" alt="Флаг Конфедерации" style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 0 15px rgba(178, 34, 34, 0.3);">
-
-        <!-- ВСПЛЫВАЮЩАЯ ПОДСКАЗКА С ТЕКСТОМ ПЕСНИ -->
         <div class="flag-tooltip" style="white-space: normal; max-width: 300px; text-align: center; font-size: 12px; line-height: 1.4; padding: 10px 15px;">
             "Oh, I'm a good old rebel, now that's just what I am..."
         </div>

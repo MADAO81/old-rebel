@@ -7,14 +7,8 @@
 
 <div style="max-width: 900px; margin: 0 auto; padding: 20px;">
 
-    <!-- НАВИГАЦИЯ (хлебные крошки) -->
-    <div style="margin-bottom: 20px; font-size: 0.9rem; color: #666;">
-        <a href="{% url 'index' %}" style="color: #b22222; text-decoration: none;">Главная</a>
-        <span style="color: #444;"> / </span>
-        <a href="{% url 'models' %}" style="color: #b22222; text-decoration: none;">Модели</a>
-        <span style="color: #444;"> / </span>
-        <span style="color: #888;">{{ bike.name }}</span>
-    </div>
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
     <!-- ЗАГОЛОВОК -->
     <div style="
@@ -77,6 +71,7 @@
     </div>
 
     <!-- БЛОК "ИНТЕРЕСНО ЗНАТЬ" (если есть фото или предшественник) -->
+    {% if bike.is_predecessor or bike.previous_model %}
     <div style="
         background: #14181c;
         padding: 20px;
@@ -108,6 +103,7 @@
         </div>
         {% endif %}
     </div>
+    {% endif %}
 
     <!-- КНОПКА "НАЗАД" -->
     <div style="text-align: center; margin-top: 30px;">
