@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /legal/
+Disallow: /static/
+Allow: /
+
+Sitemap: https://old-rebel.com/sitemap.xml

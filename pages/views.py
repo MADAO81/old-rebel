@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from bikes.models import Bike
+from django.template.loader import render_to_string
 
 
 def index(request):
@@ -106,3 +107,8 @@ def legal(request):
         {'name': 'Юридическая информация', 'url': ''},
     ]
     return render(request, 'legal.html', {'breadcrumbs': breadcrumbs})
+
+def sitemap(request):
+    bikes = Bike.objects.all()
+    sitemap_xml = render_to_string('sitemap.xml', {'bikes': bikes})
+    return render(request, 'sitemap.xml', {'bikes': bikes}, content_type='application/xml')
