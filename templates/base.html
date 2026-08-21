@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Old Rebel{% endblock %}</title>
+
+    <!-- SEO МЕТА-ТЕГИ -->
+    <meta name="description" content="{% block meta_description %}Энциклопедия Harley-Davidson Dyna и её предшественников: история, модели, характеристики, фото. Некоммерческий проект Old Rebel.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}Harley-Davidson, Dyna, мотоциклы, Super Glide, Fat Bob, Low Rider, Street Bob, FXR, энциклопедия, история, Old Rebel{% endblock %}">
+    <meta name="author" content="Евгений Че">
+    <link rel="canonical" href="{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -40,9 +47,8 @@
         {% endblock %}
     </main>
 
-    <!-- ПОДВАЛ (исправленный) -->
+    <!-- ПОДВАЛ -->
     <footer style="border-top: 2px solid #b22222; padding-top: 20px; margin-top: 40px; text-align: center; color: #555; font-size: 0.8rem;">
-        <!-- Верхняя часть футера: череп, название, ссылка на legal -->
         <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px 30px; margin-bottom: 15px;">
             <div>
                 <img src="{% static 'img/skull.svg' %}" alt="Skull" style="width: 20px; height: 20px; filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(178, 34, 34, 0.4));">
@@ -55,17 +61,14 @@
             </div>
         </div>
 
-        <!-- РУССКИЙ ДИСКЛЕЙМЕР -->
         <p style="color: #666; margin: 5px auto; line-height: 1.5; max-width: 800px;">
             © 2026 Old Rebel. Все права защищены. Данный сайт является некоммерческим энтузиастским проектом и не связан с Harley-Davidson Motor Company. Все товарные знаки и изображения принадлежат их соответствующим владельцам. Использование материалов осуществляется в ознакомительных и информационных целях на основании принципа добросовестного использования (Fair Use).
         </p>
 
-        <!-- АНГЛИЙСКИЙ ДИСКЛЕЙМЕР -->
         <p style="color: #555; margin: 5px auto; line-height: 1.5; max-width: 800px;">
             © 2026 Old Rebel. All rights reserved. This site is a non-commercial enthusiast project and is not affiliated with Harley-Davidson Motor Company. All trademarks and images are the property of their respective owners. Materials are used for informational and educational purposes under the principle of Fair Use.
         </p>
 
-        <!-- РЯД ЧЕРЕПОВ ВНИЗУ (был в старом футере) -->
         <div class="skull-row" style="margin-top: 20px;">
             {% for i in "1234567890123" %}
                 <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon" style="width: 25px; height: 25px; opacity: 0.4; filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(178, 34, 34, 0.4));">
