@@ -29,15 +29,99 @@
         <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
         <hr>
 
-        <!-- МЕНЮ -->
-        <nav class="main-nav">
-            <a href="{% url 'index' %}">Главная</a>
-            <a href="{% url 'about' %}">О проекте</a>
-            <a href="{% url 'history' %}">История</a>
-            <a href="{% url 'models' %}">Модели</a>
-            <a href="{% url 'comparison' %}">Сравнительные материалы</a>
-            <a href="{% url 'soa' %}">Сыны Анархии</a>
-            <a href="{% url 'blog_index' %}">Блог</a>
+        <!-- МЕНЮ С АНИМАЦИЕЙ -->
+        <nav class="main-nav" style="display: flex; justify-content: center; gap: 30px; margin: 15px 0 5px; flex-wrap: wrap;">
+            <a href="{% url 'index' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >Главная</a>
+            <a href="{% url 'about' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >О проекте</a>
+            <a href="{% url 'history' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >История</a>
+            <a href="{% url 'models' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >Модели</a>
+            <a href="{% url 'comparison' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >Сравнительные материалы</a>
+            <a href="{% url 'soa' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >Сыны Анархии</a>
+            <a href="{% url 'blog_index' %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
+            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
+            >Блог</a>
         </nav>
     </header>
 
