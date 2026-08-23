@@ -29,7 +29,6 @@ def models_list(request):
     bikes = Bike.objects.all().order_by('years')
 
     if era == 'fx':
-        # Жёсткий список прародителей: FX, FXB, FXR
         bikes = bikes.filter(code__in=['FX', 'FXB', 'FXR'])
     elif era == 'evolution':
         bikes = bikes.filter(
@@ -102,6 +101,13 @@ def legal(request):
     return render(request, 'legal.html', {'breadcrumbs': breadcrumbs})
 
 
-def sitemap(request):
-    bikes = Bike.objects.all()
-    return render(request, 'sitemap.xml', {'bikes': bikes}, content_type='application/xml')
+def bike_detail(request, slug):
+    bike = get_object_or_404(Bike, slug=slug)
+    breadcrumbs = [
+        {'name': 'Модели', 'url': '/models/'},
+        {'name': bike.name, 'url': ''},
+    ]
+    return render(request, 'bikes/detail.html', {
+        'bike': bike,
+        'breadcrumbs': breadcrumbs
+    })
