@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ article.title }} — Old Rebel{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+
+    {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
+
+    <h1 style="color: #c0b090; font-family: 'Georgia', serif; font-size: 2.2rem; border-bottom: 1px solid #2a2c2e; padding-bottom: 10px;">
+        {{ article.title }}
+    </h1>
+
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        {{ article.content|linebreaks }}
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'comparison_list' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; letter-spacing: 1px;">← К СПИСКУ СТАТЕЙ</a>
+    </div>
+</div>
+
+{% endblock %}

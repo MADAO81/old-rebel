@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from bikes.models import Bike
+from .models import Bike, ComparisonArticle
 
 
 def index(request):
@@ -80,11 +80,27 @@ def models_list(request):
     })
 
 
-def comparison(request):
+def comparison_list(request):
+    articles = ComparisonArticle.objects.all().order_by('order')
     breadcrumbs = [
         {'name': 'Сравнительные материалы', 'url': ''},
     ]
-    return render(request, 'comparison.html', {'breadcrumbs': breadcrumbs})
+    return render(request, 'comparison_list.html', {
+        'articles': articles,
+        'breadcrumbs': breadcrumbs
+    })
+
+
+def comparison_detail(request, slug):
+    article = get_object_or_404(ComparisonArticle, slug=slug)
+    breadcrumbs = [
+        {'name': 'Сравнительные материалы', 'url': '/comparison/'},
+        {'name': article.title, 'url': ''},
+    ]
+    return render(request, 'comparison_detail.html', {
+        'article': article,
+        'breadcrumbs': breadcrumbs
+    })
 
 
 def soa(request):

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Сравнительные материалы — Old Rebel{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
+
+    {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
+
+    <h2 style="color: #b22222; text-align: center; font-family: 'Impact', sans-serif; letter-spacing: 4px; font-size: 2.5rem;">
+        СРАВНИТЕЛЬНЫЕ МАТЕРИАЛЫ
+    </h2>
+    <p style="text-align: center; color: #888; font-style: italic; margin-bottom: 30px;">
+        Здесь собраны сравнения моделей, двигателей и систем питания
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        {% for article in articles %}
+        <div style="background: #1a1c1e; border: 1px solid #2a2c2e; border-radius: 8px; padding: 20px; width: 280px; border-top: 4px solid #b22222;">
+            <h3 style="color: #c0b090; font-size: 1.2rem; margin: 5px 0;">
+                {{ article.title }}
+            </h3>
+            <p style="color: #888; font-size: 0.85rem; margin: 5px 0 10px 0;">
+                {{ article.preview|truncatechars:80 }}
+            </p>
+            <a href="{% url 'comparison_detail' article.slug %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; letter-spacing: 1px;">Читать →</a>
+        </div>
+        {% empty %}
+        <p style="color: #888;">Пока нет статей. Но они обязательно появятся.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
