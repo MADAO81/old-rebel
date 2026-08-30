@@ -117,6 +117,13 @@ def legal(request):
     return render(request, 'legal.html', {'breadcrumbs': breadcrumbs})
 
 
+def sources(request):
+    breadcrumbs = [
+        {'name': 'Источники', 'url': ''},
+    ]
+    return render(request, 'sources.html', {'breadcrumbs': breadcrumbs})
+
+
 def bike_detail(request, slug):
     bike = get_object_or_404(Bike, slug=slug)
     breadcrumbs = [

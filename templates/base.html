@@ -25,7 +25,21 @@
                 <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
             {% endfor %}
         </div>
-        <h1>OLD REBEL</h1>
+        <a href="{% url 'index' %}" style="text-decoration: none; display: inline-block;">
+            <h1 style="
+                font-family: 'Impact', 'Arial Black', sans-serif;
+                font-size: 4rem;
+                letter-spacing: 10px;
+                color: #b22222;
+                text-shadow: 0 0 25px rgba(178, 34, 34, 0.6);
+                margin: 10px 0 5px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            "
+            onmouseover="this.style.textShadow='0 0 40px rgba(178,34,34,0.9)'; this.style.color='#ff3333';"
+            onmouseout="this.style.textShadow='0 0 25px rgba(178,34,34,0.6)'; this.style.color='#b22222';"
+            >OLD REBEL</h1>
+        </a>
         <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
         <hr>
 
@@ -145,6 +159,9 @@
             </div>
             <div>
                 <a href="/" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif;">OLD REBEL</a>
+            </div>
+            <div>
+                <a href="{% url 'sources' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Источники / Sources</a>
             </div>
             <div>
                 <a href="{% url 'legal' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Юридическая информация / Legal</a>

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from pages.views import index, about, history, models_list, comparison_list, comparison_detail, soa, legal, bike_detail
+from pages.views import index, about, history, models_list, comparison_list, comparison_detail, soa, legal, sources, bike_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +16,7 @@ urlpatterns = [
     path('comparison/<slug:slug>/', comparison_detail, name='comparison_detail'),
     path('soa/', soa, name='soa'),
     path('legal/', legal, name='legal'),
+    path('sources/', sources, name='sources'),
 ]
 
 if settings.DEBUG:
