@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from pages.views import index, about, history, models_list, comparison_list, comparison_detail, soa, legal, sources, bike_detail
+from pages.views import index, about, history, models_list, comparison_list, comparison_detail, soa, legal, sources, bike_detail, contact, contact_submit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,6 +17,8 @@ urlpatterns = [
     path('soa/', soa, name='soa'),
     path('legal/', legal, name='legal'),
     path('sources/', sources, name='sources'),
+    path('contact/', contact, name='contact'),
+    path('contact/submit/', contact_submit, name='contact_submit'),
 ]
 
 if settings.DEBUG:

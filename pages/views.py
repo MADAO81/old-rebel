@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from .models import Bike, ComparisonArticle
+from django.contrib import messages
+from .models import Bike, ComparisonArticle, ContactMessage
 
 
 def index(request):
@@ -134,3 +135,21 @@ def bike_detail(request, slug):
         'bike': bike,
         'breadcrumbs': breadcrumbs
     })
+
+
+def contact(request):
+    breadcrumbs = [
+        {'name': 'Контакты', 'url': ''},
+    ]
+    return render(request, 'contact.html', {'breadcrumbs': breadcrumbs})
+
+
+def contact_submit(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        ContactMessage.objects.create(name=name, email=email, message=message)
+        messages.success(request, 'Сообщение отправлено! Мы ответим вам в ближайшее время.')
+        return redirect('contact')
+    return redirect('contact')
