@@ -1,0 +1,131 @@
+/* ====================================================
+   MOBILE.CSS — адаптация для телефонов и планшетов
+   Подключается ТОЛЬКО на экранах до 768px.
+   Основной style.css не затрагивается.
+   ==================================================== */
+
+/* Планшеты и маленькие ноутбуки (до 1024px) */
+@media (max-width: 1024px) {
+    .main-nav {
+        gap: 15px;
+    }
+    .main-nav a {
+        font-size: 1rem;
+    }
+}
+
+/* Планшеты (до 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .rebel-header h1 {
+        font-size: 2.8rem !important;
+        letter-spacing: 6px !important;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .main-nav {
+        gap: 10px;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+
+    .skull-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .skull-row {
+        gap: 4px;
+    }
+
+    /* Карточки моделей — две колонки */
+    .bike-grid > div {
+        width: 45% !important;
+        min-width: 200px !important;
+    }
+
+    /* Хлебные крошки */
+    .breadcrumbs {
+        font-size: 0.8rem;
+    }
+}
+
+/* Телефоны (до 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .rebel-header h1 {
+        font-size: 2rem !important;
+        letter-spacing: 3px !important;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .main-nav {
+        gap: 6px;
+    }
+
+    .main-nav a {
+        font-size: 0.75rem;
+        padding: 3px 5px;
+        border-bottom: 1px solid transparent;
+    }
+
+    .skull-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .skull-row {
+        gap: 3px;
+    }
+
+    /* Карточки моделей — одна колонка */
+    .bike-grid > div {
+        width: 100% !important;
+        min-width: unset !important;
+        padding: 15px !important;
+    }
+
+    /* Фильтры по эпохам */
+    .main-nav ~ div a {
+        font-size: 0.75rem !important;
+        padding: 6px 10px !important;
+    }
+
+    /* Хлебные крошки */
+    .breadcrumbs {
+        font-size: 0.7rem;
+        gap: 3px 6px;
+    }
+
+    /* Подвал */
+    footer {
+        font-size: 0.75rem;
+    }
+
+    footer .skull-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Флаг на странице "О проекте" */
+    .about-flag-wrapper {
+        width: 40px !important;
+        top: 10px !important;
+        right: 10px !important;
+    }
+}
