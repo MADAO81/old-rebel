@@ -16,7 +16,35 @@
         Есть вопрос или предложение? Напишите нам — мы обязательно ответим.
     </p>
 
+    <!-- Почта для прямой связи -->
+    <div style="
+        background: #1a1c1e;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #2a2c2e;
+        border-left: 4px solid #b22222;
+        margin-bottom: 25px;
+        text-align: center;
+    ">
+        <p style="color: #888; font-size: 0.85rem; margin: 0 0 5px 0; letter-spacing: 1px;">ПРЯМАЯ ПОЧТА</p>
+        <a href="mailto:info.oldrebel@gmail.com" style="
+            color: #b22222;
+            font-size: 1.3rem;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        "
+        onmouseover="this.style.color='#ff6666';"
+        onmouseout="this.style.color='#b22222';"
+        >
+            info.oldrebel@gmail.com
+        </a>
+    </div>
+
+    <!-- Форма обратной связи -->
     <div style="background: #1a1c1e; padding: 25px; border-radius: 8px; border: 1px solid #2a2c2e;">
+        <p style="color: #888; font-size: 0.85rem; margin: 0 0 15px 0; letter-spacing: 1px; text-align: center;">ИЛИ ЧЕРЕЗ ФОРМУ</p>
 
         <form method="post" action="{% url 'contact_submit' %}">
             {% csrf_token %}
@@ -30,6 +58,7 @@
                     border: 1px solid #2a2c2e;
                     border-radius: 4px;
                     color: #d4c9b8;
+                    box-sizing: border-box;
                 ">
             </div>
 
@@ -42,6 +71,7 @@
                     border: 1px solid #2a2c2e;
                     border-radius: 4px;
                     color: #d4c9b8;
+                    box-sizing: border-box;
                 ">
             </div>
 
@@ -54,6 +84,7 @@
                     border: 1px solid #2a2c2e;
                     border-radius: 4px;
                     color: #d4c9b8;
+                    box-sizing: border-box;
                 "></textarea>
             </div>
 
