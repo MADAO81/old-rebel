@@ -16,6 +16,23 @@
         Есть вопрос или предложение? Напишите нам — мы обязательно ответим.
     </p>
 
+    <!-- СООБЩЕНИЯ ОБ УСПЕХЕ/ОШИБКЕ -->
+    {% if messages %}
+        {% for message in messages %}
+            <div style="
+                background: #1a1c1e;
+                border-left: 4px solid #b22222;
+                padding: 15px 20px;
+                margin-bottom: 20px;
+                color: #c0b090;
+                font-size: 1rem;
+                border-radius: 4px;
+            ">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <!-- Почта для прямой связи -->
     <div style="
         background: #1a1c1e;
