@@ -2,36 +2,211 @@
 {% load static %}
 
 {% block title %}Сыны Анархии — Old Rebel{% endblock %}
+{% block meta_description %}Почему создатели «Сынов Анархии» выбрали Harley-Davidson Dyna, кто на чём ездил из героев, и как сериал изменил рынок мотоциклов.{% endblock %}
 
 {% block content %}
 
-<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
 
-    <!-- ХЛЕБНЫЕ КРОШКИ -->
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
-    <h2 style="color: #b22222; text-align: center; font-family: 'Impact', sans-serif; letter-spacing: 4px;">
-        СЫНЫ АНАРХИИ
-    </h2>
-    <p style="text-align: center; color: #888; font-style: italic; margin-bottom: 30px;">
-        Байки из сериала
+    <!-- ЗАГЛАВНЫЙ ЭКРАН -->
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="
+            color: #b22222;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 6px;
+            font-size: 3rem;
+            margin: 10px 0 20px;
+            text-shadow: 0 0 25px rgba(178, 34, 34, 0.5);
+        ">
+            СЫНЫ АНАРХИИ
+        </h1>
+        <p style="color: #888; font-style: italic; font-size: 1.2rem; margin-bottom: 30px;">
+            Почему создатели выбрали Dyna, кто на чём ездил, и как сериал изменил Harley-Davidson
+        </p>
+
+        <!-- ПОСТЕР -->
+        <div style="border: 2px solid #b22222; border-radius: 8px; overflow: hidden; max-width: 700px; margin: 0 auto; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+            <img src="{% static 'img/soa-poster.jpg' %}" alt="Постер сериала «Сыны Анархии»" style="display: block; width: 100%; height: auto;">
+        </div>
+        <p style="color: #666; font-size: 0.8rem; font-style: italic; margin-top: 10px;">
+            Постер сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+        </p>
+    </div>
+
+    <!-- ВСТУПЛЕНИЕ -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+            ВСТУПЛЕНИЕ
+        </h3>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">«Сыны Анархии» вышли в 2008-м и стали одним из тех сериалов, которые меняют рынок. После первых сезонов интерес к Harley-Davidson вырос не на проценты, а в разы — в США, Европе, да и у нас. Люди, которые до этого никогда не сидели на мотоцикле, начали искать информацию о Dyna, записываться на курсы и покупать свой первый Big Twin.</p>
+            <p style="margin: 0;">Это не просто слова. В 2013-м продажи Harley выросли на 6%, а бренд стал лидером среди покупателей 18–34 лет. Часть этого роста — прямая заслуга сериала. Цены на Dyna FXDX в те годы поползли вверх, и держатся до сих пор. Сериал сделал то, чего Harley не мог добиться годами: он сделал круизер снова крутым для молодых.</p>
+            <p style="margin: 0;">В кадре при этом были разные мотоциклы. Пайни Уинстон ездил на трайке. «Майянцы» — на Road King. Прокурор раскатывал на Triumph. Главарь «Мрачных ублюдков» — на Road Glide. Но сайт не про это.</p>
+            <p style="margin: 0;">Мой сайт — про Dyna. Поэтому дальше — только о ней. Кто на какой ездил, как выглядели байки героев, что это за модели и почему создатели выбрали именно их.</p>
+        </div>
+    </section>
+
+    <!-- ПОЧЕМУ ДАЙНА -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+            ПОЧЕМУ ДАЙНА
+        </h3>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Когда Курт Саттер придумывал «Сынов Анархии», у него не было вопроса, на чём будут ездить герои. Harley-Davidson. Только Harley. Это не просто мотоцикл для клуба — это часть идентичности, статуса и культуры. Но почему выбор пал именно на Dyna?</p>
+            <p style="margin: 0;">Ответ оказался на поверхности: в начале 2000-х Dyna была самой лёгкой, быстрой и управляемой среди традиционных Big Twin. Для съёмок это было критично. Актёрам нужно было реально ездить, а не изображать езду. Чарли Ханнам (Джекс) вообще не умел водить мотоцикл до сериала — его научили на площадке, и к финалу он уже сам отжигал в кадре.</p>
+            <p style="margin: 0;">Но самое интересное — Дэвид Лабрава. Он играл Хэппи, но начинал как технический консультант сериала. Пятикратный дипломированный механик Harley-Davidson, член реального мотоклуба, писатель и актёр. Именно он отвечал за то, чтобы байки в кадре выглядели и звучали правильно. Без него «Сыны» были бы очередной голливудской клюквой.</p>
+        </div>
+    </section>
+
+    <!-- ПРОМО-КАДР -->
+    <div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+        <img src="{% static 'img/soa-ride.jpg' %}" alt="Колонна байкеров в сериале «Сыны Анархии»" style="display: block; width: 100%; height: auto;">
+    </div>
+    <p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -25px; margin-bottom: 40px;">
+        Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
     </p>
 
-    <div style="background: #1a1c1e; padding: 25px; border-radius: 8px; border: 1px solid #2a2c2e; margin-bottom: 20px;">
-        <p style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
-            🏍️ <strong style="color: #c0b090;">Джекс Теллер</strong> — FXDX Super Glide Sport и эволюция байка. Knucklehead 1946 в финале.
+    <!-- ДЖЕКС ТЕЛЛЕР -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            ДЖЕКС ТЕЛЛЕР
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            2003 Harley-Davidson FXDX Dyna Super Glide Sport
         </p>
-        <p style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
-            🏍️ <strong style="color: #c0b090;">Остальные члены клуба</strong> — Тиг, Бобби, Оппи, Хэппи. Кто на чём ездил.
-        </p>
-        <p style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
-            🏍️ <strong style="color: #c0b090;">Club Style</strong> — T-bars, полуфэйринг, 2-в-1 выхлоп, всё чёрное.
-        </p>
-    </div>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Это самый узнаваемый байк сериала. Джекс ездил на нём с первого по пятый сезон, потом пересел на Dyna Super Glide Custom, а в финале — на отцовский Knucklehead.</p>
+            <p style="margin: 0;">В первых сезонах FXDX был почти стоковым — минимальные изменения. Потом его всё сильнее чернили: матовый двигатель, другой выхлоп, Т-образный руль, полуфэйринг. К финалу это был уже полноценный Club Style байк, каким мы его запомнили.</p>
+            <p style="margin: 0;">FXDX — единственная Дайна с завода с регулируемой подвеской спереди и сзади. Twin Cam 88, 1450 кубов, около 67 лошадей. Не ракета, но для реальной езды — идеально. Именно на таком байке можно и по городу, и в дальняк, и открутить, когда надо.</p>
+            <p style="margin: 0;">После пика популярности сериала цены на FXDX взлетели. Байк, который до «Сынов» стоил 5–7 тысяч долларов, внезапно стал 10+. А Harley к тому моменту уже снял его с производства — в 2005 году, за три года до премьеры. Просрали момент, что называется.</p>
+        </div>
+    </section>
 
-    <div style="color: #666; text-align: center; font-size: 0.9rem; margin-top: 20px;">
-        Страница готовится к наполнению материалами.
-    </div>
+    <!-- КЛЭЙ МОРРОУ -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            КЛЭЙ МОРРОУ
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            2008 Dyna Super Glide
+        </p>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Клэй начинал на Dyna, но с годами его персонаж менялся. Тяжелейший артрит, возраст, груз решений — всё это отразилось на байке. В поздних сезонах он пересел на Road King. Тяжёлый турист с ветрозащитой. Это не случайность: Road King говорит «я всё ещё в деле, но тело уже платит за это». Но в начале, когда Клэй был президентом и железной рукой держал клуб, он ездил на Dyna Super Glide. По коллекции Maisto — 2008 год. Чёрный, массивный, с характерным для SAMCRO минимализмом.</p>
+            <p style="margin: 0;">И вот забавный факт: Рон Перлман, который играл Клэя, мотоциклы терпеть не мог. Он падал с байка так часто, что на съёмках шутили: «Он установил рекорд по падениям». Но в кадре выглядел как настоящий президент клуба и матёрый байкер.</p>
+        </div>
+    </section>
+
+    <!-- ОПИ УИНСТОН -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            ОПИ УИНСТОН
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            2001 Dyna Super Glide Sport
+        </p>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Байк Опи близок к байку Джекса, но со своими отличиями. По данным фан-сайтов, это 2001 Harley-Davidson Dyna Super Glide Sport с передним драг-фэйрингом, обмотанным термолентой выхлопом Thunderheader и кастомным сиденьем Badlander.</p>
+            <p style="margin: 0;">Главное отличие от байка Джекса — руль. У Опи не T-bar, как у остальных, а драг-бар на высоких стойках. Это меняет посадку: руки чуть дальше, корпус чуть более расслаблен. Райан Хёрст, который играл Опи, был высоким парнем — 193 см — и мотоцикл под него дорабатывали.</p>
+            <p style="margin: 0;">На баке — логотип SAMCRO на куче черепов. Двигатель в чёрном порошковом покрытии. Байк Опи — это тот самый «рабочий инструмент» клуба: не самый быстрый, не самый красивый, но надёжный как лом.</p>
+        </div>
+    </section>
+
+    <!-- ТИГ ТРЕЙГЕР -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            ТИГ ТРЕЙГЕР
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            2006 FXDBI Dyna Street Bob
+        </p>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Тиг ездил на Dyna Street Bob. Матово-чёрный, агрессивный, максимально облегчённый. T-bar, форварды, чёрный движок. Это классика Club Style в чистом виде.</p>
+            <p style="margin: 0;">Street Bob — самая доступная Дайна, но именно Тиг показал, что доступность не значит слабость. Его байк — это «меньше значит больше»: ничего лишнего, только то, что нужно для езды и для вида.</p>
+        </div>
+    </section>
+
+    <!-- ЧИБС ТЕЛФОРД -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            ЧИБС ТЕЛФОРД
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            2006 FXDBI Dyna Street Bob
+        </p>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Чибс ездил на Street Bob, как и Тиг. В ирландской арке (4 сезон) он пересаживался на европейский Fat Bob — но это уже детали, которые мы разберём в его отдельной статье.</p>
+        </div>
+    </section>
+
+    <!-- БОББИ МАНСОН -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            БОББИ МАНСОН
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            Кастомный чоппер, Fat Boy, Street Glide
+        </p>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Бобби — единственный в SAMCRO, кто не ездил на каноничной Дайне. И это не случайность, а отражение его характера. Пока остальные следовали клубному стандарту, Бобби менял байки как перчатки, и каждый из них говорил о нём больше, чем любая реплика.</p>
+            <p style="margin: 0;">Его основной байк в первых сезонах — кастомный чоппер на жёсткой раме с передней вилкой типа «спрингер», мини-эйп хангерами и одиночным подпружиненным сиденьем. И вот что интересно: это не Harley-Davidson. Байк собрали с нуля, и на нём стоял двигатель S&S Evolution или аналогичный кастомный мотор. Именно этот чоппер выделял Бобби среди остальных членов клуба — он не пытался быть «как все».</p>
+            <p style="margin: 0;">В поздних сезонах Бобби пересаживается на Harley-Davidson Street Glide — тяжёлый туристический байк с обтекателем типа «крыло летучей мыши» и кофрами. Это тот самый «большой турер» для дальних выездов клуба. Он появился в третьем сезоне, когда SAMCRO отправляется в пробег, и с тех пор стал постоянным спутником Бобби на длинных маршрутах.</p>
+            <p style="margin: 0;">Был в его арсенале и Harley-Davidson Fat Boy, который появился всего в одном эпизоде — в том самом, где Тиг разбился, а потом сказал Бобби, что единственный способ заслужить прощение — избавиться от этого байка. Что Бобби и сделал.</p>
+            <p style="margin: 0;">Итог: Бобби — единственный в клубе, кто не придерживался «клубного стандарта». Его байки — это отражение его персонажа: эксцентричного, не вписывающегося в рамки, но при этом одного из самых опытных и уважаемых членов SAMCRO.</p>
+        </div>
+    </section>
+
+    <!-- ДЖОН ТЕЛЛЕР -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 5px;">
+            ДЖОН ТЕЛЛЕР
+        </h3>
+        <p style="color: #b22222; font-size: 0.95rem; margin-top: 0; font-style: italic;">
+            1946 Harley-Davidson EL Knucklehead
+        </p>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">В финальном сезоне Джекс едет на байке своего отца — 1946 Knucklehead. Байк был отреставрирован после взрыва клуба и хранился в клабхаусе. Это не просто мотоцикл. Это символ возвращения к корням, к старой школе, к отцу, которого он не знал.</p>
+            <p style="margin: 0;">Технически Knucklehead — совсем другой зверь. 1207 кубов, 53 лошади, четырёхступенчатая коробка с ручным переключением. Кикстартер. Весит примерно на 45 кг меньше, чем FXDX. Медленнее, старше, проще. Но в этом и смысл: Джекс едет не в будущее, а в прошлое. К финалу. К отцу.</p>
+            <p style="margin: 0;">Этот байк был выставлен на аукцион после закрытия сериала. Вместе с Дайной Опи, которая ушла за 7 тысяч долларов.</p>
+        </div>
+    </section>
+
+    <!-- CLUB STYLE -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+            ПОЧЕМУ ИМЕННО ДАЙНА: ФУНКЦИОНАЛЬНОСТЬ, А НЕ ТОЛЬКО СТИЛЬ
+        </h3>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">Клубный стиль (Club Style) существовал задолго до сериала. Его корни — в калифорнийских мотоклубах 80-х и 90-х, которые строили байки для реальной езды: быстрые, манёвренные, способные отжечь и при этом выдержать дальний перегон.</p>
+            <p style="margin: 0;">Курт Саттер консультировался с реальными членами мотоклубов до начала съёмок. И все они говорили одно и то же: клубные парни ездят на Дайнах. Средний вес, резиновые подушки двигателя, надёжность на дальних групповых выездах — вот почему Dyna была стандартом клуба больше двадцати лет.</p>
+            <p style="margin: 0;">Сериал не изобретал клубный стиль. Он его показал массам. И сделал это настолько убедительно, что сериал поспособствовал резкому росту популярности клубного стиля в мире.</p>
+        </div>
+    </section>
+
+    <!-- ВЛИЯНИЕ НА РЫНОК -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+            ВЛИЯНИЕ НА РЫНОК: ЧТО СЛУЧИЛОСЬ ПОСЛЕ СЕРИАЛА
+        </h3>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">После пика популярности «Сынов» цены на Dyna FXDX взлетели. Байк, который до сериала стоил 5–7 тысяч долларов, внезапно стал 10+. Чистые экземпляры с низким пробегом найти сложно до сих пор.</p>
+            <p style="margin: 0;">Марк Бун Джуниор (Бобби) в интервью The Hollywood Reporter сказал прямым текстом: «We basically saved Harley» — «Мы, по сути, спасли Harley». И это не шутка. В 2013 году продажи Harley выросли на 6%, и бренд стал лидером в возрастной группе 18–34 — во многом благодаря сериалу.</p>
+        </div>
+    </section>
+
+    <!-- ЗАКЛЮЧЕНИЕ -->
+    <section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+            ЗАКЛЮЧЕНИЕ
+        </h3>
+        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin: 0;">«Сыны Анархии» не создали клубный стиль. Они его показали. И сделали это настолько убедительно, что целое поколение захотело Dyna с T-bar, чёрным движком и полуфэйрингом.</p>
+            <p style="margin: 0;">Dyna стала идеальным выбором для сериала не потому, что это самый красивый Harley. А потому, что это был самый честный Harley того времени: достаточно лёгкий, чтобы ехать каждый день, достаточно мощный, чтобы открутить, когда нужно, и достаточно простой, чтобы выглядеть как рабочий инструмент, а не выставочный экспонат.</p>
+            <p style="margin: 0;">Дайна стала неотъемлемой частью и лицом сериала. Без неё не было бы ни «Сынов» в том виде, в котором мы их знаем, ни того самого клубного стиля. Так что спасибо Курту Саттеру, Дэвиду Лабраве и тому безымянному парню из Oakland Hells Angels, с которого Ханнам срисовал Джекса.</p>
+        </div>
+    </section>
+
 </div>
 
 {% endblock %}
