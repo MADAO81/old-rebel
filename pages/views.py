@@ -1,8 +1,35 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
-from .models import  ComparisonArticle, ContactMessage
+from django.conf import settings
+import requests
+from .models import ComparisonArticle, ContactMessage
 from bikes.models import Bike
+
+
+def send_telegram_notification(name, email, message):
+    """Отправляет уведомление в Telegram о новом сообщении."""
+    token = settings.TELEGRAM_BOT_TOKEN
+    chat_id = settings.TELEGRAM_CHAT_ID
+
+    if not token or not chat_id:
+        print('TELEGRAM ERROR: token or chat_id not set')
+        return
+
+    text = (
+        f'💬 Новое сообщение на Old Rebel\n\n'
+        f'👤 Имя: {name}\n'
+        f'📧 Email: {email}\n\n'
+        f'📝 Сообщение:\n{message}'
+    )
+
+    try:
+        url = f'https://api.telegram.org/bot{token}/sendMessage'
+        response = requests.post(url, data={'chat_id': chat_id, 'text': text}, timeout=10)
+        if response.status_code != 200:
+            print(f'TELEGRAM ERROR: {response.text}')
+    except Exception as e:
+        print(f'TELEGRAM ERROR: {e}')
 
 
 def index(request):
@@ -150,7 +177,13 @@ def contact_submit(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
+
+        # Сохраняем в базу данных
         ContactMessage.objects.create(name=name, email=email, message=message)
+
+        # Отправляем уведомление в Telegram
+        send_telegram_notification(name, email, message)
+
         messages.success(request, 'Сообщение отправлено! Мы ответим вам в ближайшее время.')
         return redirect('contact')
     return redirect('contact')
