@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 from pages.views import index, about, history, models_list, comparison_list, comparison_detail, soa, legal, sources, bike_detail, contact, contact_submit
 
 urlpatterns = [
@@ -19,6 +20,8 @@ urlpatterns = [
     path('sources/', sources, name='sources'),
     path('contact/', contact, name='contact'),
     path('contact/submit/', contact_submit, name='contact_submit'),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='application/xml')),
 ]
 
 if settings.DEBUG:
