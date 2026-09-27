@@ -1,12 +1,126 @@
 {% extends 'soa_hero_base.html' %}
+{% load static %}
 
 {% block hero_title_meta %}Клэй Морроу{% endblock %}
-{% block hero_meta_description %}Байк Клэя Морроу — 2008 Harley-Davidson Dyna Super Glide. Почему президент SAMCRO выбрал базовую модель и как менялся его мотоцикл.{% endblock %}
+{% block hero_meta_description %}Байк Клэя Морроу — 2008 Harley-Davidson Dyna Super Glide. Почему президент SAMCRO выбрал базовую модель и как менялся его мотоцикл по ходу сериала.{% endblock %}
 
 {% block hero_name %}КЛЭЙ МОРРОУ{% endblock %}
 {% block hero_bike %}2008 DYNA SUPER GLIDE{% endblock %}
-{% block hero_lead %}Разбираем байк президента SAMCRO: почему он ездил на базовой Дайне, как менялся его мотоцикл по ходу сериала и что общего у Клэя Морроу с Роном Перлманом.{% endblock %}
+{% block hero_lead %}Разбираем байк президента SAMCRO: почему он ездил на базовой Дайне, как менялся его мотоцикл по ходу сериала и что общего у Клэя Морроу с Роном Перлманом, который мотоциклы не любил.{% endblock %}
 
 {% block hero_content %}
-<p style="color: #aaa; text-align: center; font-style: italic;">Текст статьи скоро появится.</p>
+
+<!-- ФОТО 1: ОБЛОЖКА -->
+<div style="margin: 30px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/clay-morrow/clay_1.jpg' %}" alt="Клэй Морроу на Harley-Davidson Dyna Super Glide" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+
+<!-- ВСТУПЛЕНИЕ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ВСТУПЛЕНИЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Клэй Морроу — президент SAMCRO, человек, который железной рукой держал клуб больше двадцати лет. Его байк — это не просто транспорт. Это символ власти, статуса и того, что он был здесь до всех остальных. И даже когда тело начало подводить, а прошлое — догонять, он остался в седле.</p>
+        <p style="margin: 0;">Есть в этом что-то трагическое. И есть что-то очень человеческое.</p>
+    </div>
+</section>
+
+<!-- ЧТО ЭТО ЗА МОТОЦИКЛ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЧТО ЭТО ЗА МОТОЦИКЛ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Клэй ездил на Harley-Davidson Dyna Super Glide 2008 года. Базовая модель. Не FXDX, не Street Bob, не Wide Glide. Просто Super Glide.</p>
+        <p style="margin: 0;">Это важная деталь. Президент клуба, у которого есть деньги и власть, мог бы позволить себе что угодно. Но он выбрал самую простую Дайну из линейки. Почему? Потому что Клэй не был человеком, который нуждается в показной роскоши. Ему не нужно было доказывать свой статус через байк. Статус был в другом.</p>
+        <p style="margin: 0;">Под баком — Twin Cam 96 объёмом 1584 куба. Шестиступенчатая коробка, ременной привод. Всё стандартно для 2008 года. Никаких кричащих наворотов.</p>
+        <p style="margin: 0;">Но, конечно, были и отличия.</p>
+    </div>
+</section>
+
+<!-- ТЮНИНГ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ТЮНИНГ: ЧТО СТОЯЛО НА БАЙКЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Байк Клэя — это Дайна, которая не кричит, а говорит. Спокойно, уверенно, с достоинством.</p>
+        <p style="margin: 0;">Аэрография на баке. Полный жнец (Reaper) с косой и надписью «Sons of Anarchy — California». У Джекса на баке был жнец, у Оппи — черепа, у Клэя — полный клубный символ. Это не просто украшение. Это декларация: «Я — президент. Это моя территория».</p>
+        <p style="margin: 0;">Чёрный матовый стиль. Тот же Club Style, что и у остальных, но без агрессивных акцентов. Клэй не пытался выглядеть моложе или злее, чем есть.</p>
+        <p style="margin: 0;">Выхлоп и посадка. Стандартные для клубного байка: чёрный выхлоп, удобное сиденье, минимум хрома. Байк для человека, который проводит в седле много времени, но уже не гонится за адреналином.</p>
+        <p style="margin: 0;">И вот тут начинается самое интересное. Потому что байк Клэя — это не просто байк президента. Это байк человека, который постепенно теряет контроль. И мотоцикл это показывает.</p>
+    </div>
+</section>
+
+<!-- ФОТО 2: ТЮНИНГ -->
+<div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/clay-morrow/clay_2.jpg' %}" alt="Клэй Морроу на Dyna Super Glide, вид сбоку" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+
+<!-- КАК БАЙК МЕНЯЛСЯ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        КАК БАЙК МЕНЯЛСЯ ПО ХОДУ СЕРИАЛА
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">В первых сезонах Клэй ездил на Dyna Super Glide — том самом байке, который мы описали. Это был президент в расцвете сил: жёсткий, опасный, уверенный.</p>
+        <p style="margin: 0;">Но с годами тело начало подводить. Тяжелейший артрит, возраст, груз решений — всё это отразилось не только на характере, но и на выборе мотоцикла. В поздних сезонах Клэй пересаживается на Road King. Тяжёлый туристический байк с ветрозащитой и комфортной посадкой.</p>
+        <p style="margin: 0;">Это не случайность. Road King — это байк для человека, который уже не может ездить на жёсткой Дайне, но не готов признать, что пора завязывать. Это компромисс между «я всё ещё в деле» и «тело уже платит за это».</p>
+        <p style="margin: 0;">Смена байка — это визуальная арка персонажа. От президента, который держит клуб в кулаке, до человека, который пытается удержать то, что уже ускользает.</p>
+    </div>
+</section>
+
+<!-- ФОТО 3: ХАРАКТЕР -->
+<div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/clay-morrow/clay_3.jpg' %}" alt="Клэй Морроу на Dyna Super Glide, аэрография на баке" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+
+<!-- ИРОНИЯ: РОН ПЕРЛМАН -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ИРОНИЯ: РОН ПЕРЛМАН И МОТОЦИКЛЫ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">А теперь факт, который меняет всё восприятие.</p>
+        <p style="margin: 0;">Рон Перлман, который играл Клэя Морроу, мотоциклы не любил. Он сам признавался в этом на конвентах: «Я дерьмовый райдер. Мотоциклы меня не любят, и я не люблю мотоциклы».</p>
+        <p style="margin: 0;">Он падал с байка так часто, что на съёмках шутили: «Он установил рекорд по падениям». Перлман говорил: «Если я убедил вас, что мне комфортно на Харлее, это было чистое актёрское мастерство, чувак».</p>
+        <p style="margin: 0;">И вот в чём ирония. Человек, который не любил мотоциклы, играл президента мотоклуба. Человек, который падал с байка, в кадре выглядел как тот, кто родился в седле. Это не просто актёрская работа. Это доказательство того, что образ создаётся не только железом, но и тем, как ты его носишь.</p>
+        <p style="margin: 0;">Клэй Морроу на экране — это президент, который контролирует всё. Рон Перлман за кадром — это человек, который не контролировал даже собственный мотоцикл. И это делает персонаж только интереснее.</p>
+        <p style="margin: 0;">И да, это не делает Перлмана лохом. Просто мотоциклы — не его тема. Не все люди любят мотоциклы. Но и не все люди могут так убедительно сыграть того, кто на них родился.</p>
+    </div>
+</section>
+
+<!-- ЧТО ХОТЕЛИ СКАЗАТЬ АВТОРЫ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЧТО ХОТЕЛИ СКАЗАТЬ АВТОРЫ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Байк Клэя — это байк власти, которая уходит. В первых сезонах он символизирует силу: полный жнец на баке, уверенная посадка, президент в расцвете. В поздних сезонах — Road King, который говорит о компромиссе и усталости.</p>
+        <p style="margin: 0;">Это не просто смена мотоцикла. Это смена эпохи. Клэй Морроу был старым SAMCRO. Джекс Теллер — новым. И байки отражают этот переход: от жёсткой Дайны до тяжёлого туриста, от контроля до попытки удержать то, что уже ускользает.</p>
+    </div>
+</section>
+
+<!-- ЗАКЛЮЧЕНИЕ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЗАКЛЮЧЕНИЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Клэй Морроу ездил на простой Dyna Super Glide. Не потому что не мог позволить себе большее, а потому что ему не нужно было доказывать свой статус через железо. Его власть была в другом.</p>
+        <p style="margin: 0;">А когда тело начало подводить, он пересел на Road King. Не сдался. Просто адаптировался. Как делал всю жизнь.</p>
+        <p style="margin: 0;">И даже если Рон Перлман не любил мотоциклы, в кадре он был президентом. А это — высший пилотаж актёрской игры.</p>
+    </div>
+</section>
+
 {% endblock %}
