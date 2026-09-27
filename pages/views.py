@@ -187,3 +187,61 @@ def contact_submit(request):
         messages.success(request, 'Сообщение отправлено! Мы ответим вам в ближайшее время.')
         return redirect('contact')
     return redirect('contact')
+
+
+# === СЫНЫ АНАРХИИ: СТАТЬИ О ГЕРОЯХ ===
+
+def soa_jax(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Джекс Теллер', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/jax-teller.html', {'breadcrumbs': breadcrumbs})
+
+
+def soa_clay(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Клэй Морроу', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/clay-morrow.html', {'breadcrumbs': breadcrumbs})
+
+
+def soa_tig(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Тиг Трейгер', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/tig-trager.html', {'breadcrumbs': breadcrumbs})
+
+
+def soa_chibs(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Чибс Телфорд', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/chibs-telford.html', {'breadcrumbs': breadcrumbs})
+
+
+def soa_juice(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Шустрый', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/juice-ortiz.html', {'breadcrumbs': breadcrumbs})
+
+
+def soa_happy(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Хэппи Лоумен', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/happy-lowman.html', {'breadcrumbs': breadcrumbs})
+
+
+def soa_opie(request):
+    breadcrumbs = [
+        {'name': 'Сыны Анархии', 'url': '/soa/'},
+        {'name': 'Оппи Уинстон', 'url': ''},
+    ]
+    return render(request, 'soa_heroes/opie-winston.html', {'breadcrumbs': breadcrumbs})
