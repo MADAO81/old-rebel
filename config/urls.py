@@ -7,6 +7,7 @@ from pages.views import (
     index, about, history, models_list, comparison_list, comparison_detail,
     soa, legal, sources, bike_detail, contact, contact_submit,
     soa_jax, soa_clay, soa_tig, soa_chibs, soa_juice, soa_happy, soa_opie,
+    sitemap_view,
 )
 
 urlpatterns = [
@@ -35,7 +36,7 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('contact/submit/', contact_submit, name='contact_submit'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
-    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='application/xml')),
+    path('sitemap.xml', sitemap_view, name='sitemap'),
 ]
 
 if settings.DEBUG:

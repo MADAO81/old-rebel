@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import render_to_string
 import requests
 from .models import ComparisonArticle, ContactMessage
 from bikes.models import Bike
@@ -245,3 +247,11 @@ def soa_opie(request):
         {'name': 'Оппи Уинстон', 'url': ''},
     ]
     return render(request, 'soa_heroes/opie-winston.html', {'breadcrumbs': breadcrumbs})
+
+
+# === SITEMAP ===
+
+def sitemap_view(request):
+    bikes = Bike.objects.all()
+    xml = render_to_string('sitemap.xml', {'bikes': bikes})
+    return HttpResponse(xml, content_type='application/xml')

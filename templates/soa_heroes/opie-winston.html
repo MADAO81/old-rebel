@@ -1,12 +1,117 @@
 {% extends 'soa_hero_base.html' %}
+{% load static %}
 
 {% block hero_title_meta %}Оппи Уинстон{% endblock %}
 {% block hero_meta_description %}Байк Оппи Уинстона — 2001 Dyna Super Glide Sport. Драг-бар на высоких стойках, антропометрия здоровяка и байк человека, который вернулся из тюрьмы в пустой дом.{% endblock %}
 
 {% block hero_name %}ОППИ УИНСТОН{% endblock %}
 {% block hero_bike %}2001 DYNA SUPER GLIDE SPORT{% endblock %}
-{% block hero_lead %}Разбираем байк лучшего друга Джекса: почему он выбрал драг-бар вместо T-bar, как антропометрия здоровяка повлияла на посадку и что тюнинг говорит о человеке, который пять лет отсидел за клуб.{% endblock %}
+{% block hero_lead %}Разбираем байк лучшего друга Джекса: почему он выбрал драг-бар вместо T-bar, как антропометрия здоровяка повлияла на посадку и что тюнинг говорит о человеке, который пять лет отсидел за клуб и вернулся в пустой дом.{% endblock %}
 
 {% block hero_content %}
-<p style="color: #aaa; text-align: center; font-style: italic;">Текст статьи скоро появится.</p>
+
+<!-- ФОТО 1: ОБЛОЖКА (пока нет) -->
+<!--
+<div style="margin: 30px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/opie-winston/opie_1.jpg' %}" alt="Оппи Уинстон на Harley-Davidson Dyna Super Glide Sport" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+-->
+
+<!-- ВСТУПЛЕНИЕ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ВСТУПЛЕНИЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Гарри «Оппи» Уинстон — не просто член SAMCRO и лучший друг Джекса с детства. Это человек, который заплатил клубу самую высокую цену. Пять лет тюрьмы за клуб, пока жена и двое детей выживали без него. Когда он вышел, долгов было больше, чем шансов. И байк Оппи — это отражение всего этого: он похож на байк Джекса, но построен под другого человека и другие обстоятельства.</p>
+    </div>
+</section>
+
+<!-- ЧТО ЭТО ЗА МОТОЦИКЛ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЧТО ЭТО ЗА МОТОЦИКЛ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Оппи ездил на Harley-Davidson Dyna Super Glide Sport. Той самой FXDX, которую мы уже разбирали у Джекса: Twin Cam 88, 1450 кубов, регулируемая подвеска спереди и сзади.</p>
+        <p style="margin: 0;">Но есть нюанс, который отличает его байк от байка Джекса с первого взгляда. И этот нюанс — не стиль. Это антропометрия.</p>
+        <p style="margin: 0;">Райан Хёрст, который играл Оппи, был огромным парнем: почти 197 см роста. Для сравнения — Джекс в исполнении Чарли Ханнама ниже на голову. Байк под Оппи дорабатывали, потому что стоковая посадка для такого роста не подходила. Руки дальше, ноги длиннее, центр тяжести выше. Всё это нужно было компенсировать.</p>
+    </div>
+</section>
+
+<!-- ТЮНИНГ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ТЮНИНГ: ЧТО СТОЯЛО НА БАЙКЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Байк Оппи — это FXDX, но с другим характером. Вот что его отличало.</p>
+        <p style="margin: 0;">Драг-бар на высоких стойках (risers) вместо T-bar. Это главное визуальное и функциональное отличие от байка Джекса. У остальных членов клуба — T-образные рули, которые дают жёсткий контроль и собранную посадку. У Оппи — драг-бар, поднятый на стойках. Это меняет всё: руки чуть дальше, корпус расслабленнее, посадка более размашистая. Для человека ростом под два метра — то, что нужно. T-bar на таком росте превратил бы езду в пытку.</p>
+        <p style="margin: 0;">Передний драг-фэйринг. Та же «скорлупа» на вилке, что и у Джекса. Практичная вещь для езды по хайвеям.</p>
+        <p style="margin: 0;">Выхлоп Thunderheader, обмотанный термолентой. Термолента — это не только защита от жара, но и визуальный код: байк рабочий, не выставочный. Пыль, дорога, долгие перегоны.</p>
+        <p style="margin: 0;">Кастомное сиденье Badlander. Более плоское и жёсткое, чем стоковое. Для дальних поездок — не самое удобное, но для человека, который привык к спартанским условиям, в самый раз.</p>
+        <p style="margin: 0;">Двигатель с чёрной порошковой окраской. Тот же blacked-out стиль, что у Джекса. Но если у Джекса это было осознанное движение к Club Style, то у Оппи — скорее вопрос практичности и бюджета.</p>
+        <p style="margin: 0;">Аэрография на баке: логотип SOA на куче черепов. Не жнец, как у Джекса, а именно клубный символ на груде черепов. Проще, прямее, без индивидуальной символики. Оппи не пытался выделиться. Он был клубным человеком до мозга костей.</p>
+    </div>
+</section>
+
+<!-- ФОТО 2: ТЮНИНГ (пока нет) -->
+<!--
+<div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/opie-winston/opie_2.jpg' %}" alt="Оппи Уинстон на Dyna Super Glide Sport, тюнинг" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+-->
+
+<!-- КАК БАЙК ОТРАЖАЛ ХАРАКТЕР -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        КАК БАЙК ОТРАЖАЛ ХАРАКТЕР ОППИ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Байк Оппи — это байк человека, который вернулся из тюрьмы и обнаружил, что жизнь развалилась. Долги, работа, жена на грани, дети без отца. И байк — единственное, что осталось от прежней жизни. Не роскошь, не игрушка. Инструмент.</p>
+        <p style="margin: 0;">Драг-бар на высоких стойках вместо T-bar — это не поза. Это необходимость. Здоровяк не может ездить с T-bar, как остальные парни. Ему нужно место. И байк подстраивается под него, а не наоборот. В этом весь Оппи: он не гнётся под обстоятельства, он их перестраивает. Даже если это всего лишь руль.</p>
+        <p style="margin: 0;">Аэрография на баке — SOA на черепах, без жнеца. У Джекса — символ смерти, который несёт его хозяин. У Оппи — символ клуба, который его съел. Разница тонкая, но она есть. Джекс едет с жнецом. Оппи едет с клубом.</p>
+        <p style="margin: 0;">И ещё одна деталь: байк Оппи — не самый мощный, не самый красивый, не самый дорогой. Это FXDX, спортивная версия, но без кричащих наворотов. Он не пытался быть круче, чем есть. Как и сам Оппи. Он просто делал то, что должен был делать. И умер за это.</p>
+    </div>
+</section>
+
+<!-- ФОТО 3: ХАРАКТЕР (пока нет) -->
+<!--
+<div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/opie-winston/opie_3.jpg' %}" alt="Оппи Уинстон" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+-->
+
+<!-- ЧТО ХОТЕЛИ СКАЗАТЬ АВТОРЫ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЧТО ХОТЕЛИ СКАЗАТЬ АВТОРЫ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Байк Оппи — это визуальная рифма к байку Джекса, которая заканчивается трагедией. Они похожи: та же модель, тот же тюнинг, тот же Club Style. Но у Джекса есть будущее, пусть и трагическое. У Оппи будущего нет с самого начала. Его байк — это не символ пути, а символ тупика.</p>
+        <p style="margin: 0;">Когда Оппи погибает в тюрьме в пятом сезоне, его байк уходит на аукцион вместе с остальным реквизитом сериала. Он продаётся за семь с лишним тысяч долларов. Не как легенда. Как вещь человека, которого больше нет.</p>
+        <p style="margin: 0;">Это, пожалуй, самый честный байк в сериале. Потому что он не пытается быть чем-то большим. Он просто есть. Как и Оппи.</p>
+    </div>
+</section>
+
+<!-- ЗАКЛЮЧЕНИЕ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЗАКЛЮЧЕНИЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Оппи Уинстон был лучшим другом Джекса, верным членом клуба и человеком, который заплатил за это всё. Его байк — FXDX с драг-баром на высоких стойках — не был вызовом. Это был инструмент выживания для здоровяка, которому не повезло с обстоятельствами.</p>
+        <p style="margin: 0;">Он не пытался быть Джексом. Он просто ездил рядом. И когда его не стало, байк продали. Как продают вещи людей, которые больше не вернутся.</p>
+    </div>
+</section>
+
 {% endblock %}

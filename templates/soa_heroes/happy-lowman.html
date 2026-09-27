@@ -1,12 +1,132 @@
 {% extends 'soa_hero_base.html' %}
+{% load static %}
 
 {% block hero_title_meta %}Хэппи Лоумен{% endblock %}
 {% block hero_meta_description %}Байк Хэппи Лоумена — 2011 Dyna Street Bob Дэвида Лабравы. «Reaper of Death» на заднем крыле и личный байк реального члена Hells Angels.{% endblock %}
 
 {% block hero_name %}ХЭППИ ЛОУМЕН{% endblock %}
 {% block hero_bike %}2011 DYNA STREET BOB{% endblock %}
-{% block hero_lead %}Разбираем байк самого загадочного члена SAMCRO: почему Дэвид Лабрава ездил на своей собственной Дайне, что означает «Reaper of Death» на заднем крыле и как человек, который убивает с улыбкой, стал любимцем публики.{% endblock %}
+{% block hero_lead %}Разбираем байк самого загадочного члена SAMCRO: почему Дэвид Лабрава ездил на своей собственной Дайне, что означает «Reaper of Death» на заднем крыле и как человек, который убивает с улыбкой, стал одним из самых любимых персонажей сериала.{% endblock %}
 
 {% block hero_content %}
-<p style="color: #aaa; text-align: center; font-style: italic;">Текст статьи скоро появится.</p>
+
+<!-- ФОТО 1: ОБЛОЖКА (пока нет — раскомментировать, когда будет) -->
+<!--
+<div style="margin: 30px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/happy-lowman/happy_1.jpg' %}" alt="Хэппи Лоумен на Harley-Davidson Dyna Street Bob" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+-->
+
+<!-- ВСТУПЛЕНИЕ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ВСТУПЛЕНИЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Хэппи Лоумен — это не просто персонаж. Это человек, который пришёл в сериал как технический консультант и остался как легенда. Дэвид Лабрава, реальный член Hells Angels, пятикратный дипломированный механик Harley-Davidson, был нанят, чтобы следить за тем, чтобы байки в кадре выглядели и звучали правильно. А потом Курт Саттер предложил ему роль.</p>
+        <p style="margin: 0;">И он стал Хэппи — киллером клуба, человеком, который за каждое убийство набивает на теле смайлик. Персонаж, который пугает даже своих. Персонаж, у которого есть больная мать в Бейкерсфилде, собака по кличке Опи и странная, почти детская привязанность к тем, кого он считает своими.</p>
+        <p style="margin: 0;">Его байк — это не реквизит. Это его собственная Dyna Street Bob, которую он привёз на съёмки. И это меняет всё.</p>
+    </div>
+</section>
+
+<!-- ЧТО ЭТО ЗА МОТОЦИКЛ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЧТО ЭТО ЗА МОТОЦИКЛ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Хэппи ездил на Harley-Davidson Dyna Street Bob 2011 года. Это тот же FXDB, что и у Тига с Чибсом, но с одним принципиальным отличием: это не байк, подобранный для персонажа. Это байк, на котором ездит сам Дэвид Лабрава.</p>
+        <p style="margin: 0;">Он привёз его на съёмки. Он на нём ездил. Он его знает лучше, чем кто-либо на площадке. Потому что он — сертифицированный механик Harley-Davidson с пятью дипломами, выпускник Motorcycle Mechanics Institute. Человек, который не просто ездит на мотоциклах, а строит их.</p>
+        <p style="margin: 0;">Под баком — Twin Cam 96 объёмом 1584 куба. Стандартный мотор для 2011 года. Но байк не был стоковым.</p>
+    </div>
+</section>
+
+<!-- ТЮНИНГ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ТЮНИНГ: ЧТО СТОЯЛО НА БАЙКЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Байк Хэппи — это Street Bob, который выглядит так, будто его собрал человек, который знает, что делает. Потому что так и есть.</p>
+        <p style="margin: 0;">Кастомный обтекатель и руль. Лабрава поставил на байк то, что нужно для реальной езды, а не для красоты.</p>
+        <p style="margin: 0;">Аэрография: «Reaper of Death» на заднем крыле. Не просто жнец, как у Джекса. Мрачный Жнец с косой, нанесённый на заднее крыло. И ещё один Жнец — на баке. Это не клубный логотип. Это личный символ. Хэппи — тот, кто приносит смерть. И его байк это говорит прямо.</p>
+        <p style="margin: 0;">Матово-чёрная окраска. Тот же тёмный стиль, что и у остальных, но без агрессивных акцентов вроде шипов Тига.</p>
+        <p style="margin: 0;">Смайлики на теле, но не на байке. Хэппи набивает смайлик за каждое убийство. К финалу сериала у него было 16 таких лиц. Но на байке их нет. Байк — это рабочая машина, а не доска почёта.</p>
+        <p style="margin: 0;">И вот главное: это байк, на котором Лабрава ездил каждый день. Он говорил, что не может без мотоцикла. Он ездит ежедневно. И когда он играл Хэппи, он ездил на том же байке, что стоит в кадре.</p>
+    </div>
+</section>
+
+<!-- ФОТО 2: ТЮНИНГ (пока нет) -->
+<!--
+<div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/happy-lowman/happy_2.jpg' %}" alt="Хэппи Лоумен на Dyna Street Bob, тюнинг" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+-->
+
+<!-- КАК БАЙК ОТРАЖАЛ ХАРАКТЕР -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        КАК БАЙК ОТРАЖАЛ ХАРАКТЕР ХЭППИ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Хэппи — это человек, который убивает с улыбкой. Он набивает смайлики на теле. Он наслаждается насилием так, что это пугает даже Тига. Но при этом он заботится о больной матери. Он любит свою собаку. Он плачет, когда Джекс прощается с клубом.</p>
+        <p style="margin: 0;">И его байк — это отражение этой двойственности.</p>
+        <p style="margin: 0;">С одной стороны — «Reaper of Death» на крыле. Жнец. Смерть. Это то, что он делает. Это то, кем он является для врагов клуба.</p>
+        <p style="margin: 0;">С другой — это простой Street Bob. Не самый мощный, не самый дорогой, не самый статусный. Рабочая лошадка, как и сам Хэппи. Он не президент, не вице-президент, не сержант по оружию (до шестого сезона). Он — исполнитель. Тот, кто делает работу.</p>
+        <p style="margin: 0;">И тот факт, что это личный байк Лабравы, а не реквизит, добавляет всему этому глубину. Хэппи не «играет» байкера. Он и есть байкер. Он живёт этим. Он построил этот байк. Он на нём ездит. И когда камера выключается, он садится на него и едет домой.</p>
+        <p style="margin: 0;">Это не актёрская игра. Это жизнь.</p>
+    </div>
+</section>
+
+<!-- СУДЬБА БАЙКА -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        СУДЬБА БАЙКА
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Один из экземпляров байка Хэппи, тот самый 2011 года, был выставлен на аукцион в 2012 году. Вырученные средства пошли в фонд Ronald McDonald House. Байк, который в кадре символизировал смерть, за кадром помогал детям.</p>
+        <p style="margin: 0;">Это, пожалуй, лучшая характеристика Хэппи Лоумена. Человек, который убивает с улыбкой, но при этом заботится о своей матери и жертвует деньги на благотворительность. Двойственность, которая не укладывается в рамки, но которая делает персонажа живым.</p>
+    </div>
+</section>
+
+<!-- ФОТО 3: ХАРАКТЕР (пока нет) -->
+<!--
+<div style="margin: 40px 0; border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
+    <img src="{% static 'img/soa/happy-lowman/happy_3.jpg' %}" alt="Хэппи Лоумен" style="display: block; width: 100%; height: auto;">
+</div>
+<p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: -20px; margin-bottom: 40px;">
+    Кадр из сериала «Сыны Анархии» (FX Networks). Используется в информационных целях.
+</p>
+-->
+
+<!-- ЧТО ХОТЕЛИ СКАЗАТЬ АВТОРЫ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЧТО ХОТЕЛИ СКАЗАТЬ АВТОРЫ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Хэппи — это персонаж, который не должен был стать любимцем публики. Он киллер. Он психопат. Он убивает людей и набивает смайлики. Но он стал одним из самых любимых. Почему?</p>
+        <p style="margin: 0;">Потому что за этой маской есть что-то человеческое. Что-то, что заставляет его заботиться о матери, любить собаку и плакать, когда уходит Джекс.</p>
+        <p style="margin: 0;">И его байк — это визуальное воплощение этой двойственности. «Reaper of Death» на крыле и простой Street Bob. Смерть и жизнь. Убийца и сын. Хэппи Лоумен — это тот, кем мог бы стать любой, если бы выбрал не ту дорогу. И он ездит на байке, который построил сам.</p>
+    </div>
+</section>
+
+<!-- ЗАКЛЮЧЕНИЕ -->
+<section style="margin-top: 40px; border-left: 3px solid #b22222; padding-left: 20px;">
+    <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.6rem; margin-bottom: 15px;">
+        ЗАКЛЮЧЕНИЕ
+    </h3>
+    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+        <p style="margin: 0;">Хэппи Лоумен ездил на Dyna Street Bob. Чаще всего 2011 года. С кастомным обтекателем, рулём и «Reaper of Death» на заднем крыле.</p>
+        <p style="margin: 0;">Но главное не в деталях. Главное в том, что это личный байк Дэвида Лабравы. Человека, который пришёл в сериал как консультант, а остался как один из самых запоминающихся персонажей. Человека, который ездит на мотоцикле каждый день. Человека, который не играет байкера — он им является.</p>
+        <p style="margin: 0;">Хэппи убивает с улыбкой. Лабрава строит байки и ездит на них. Вместе они создали персонаж, который останется в памяти надолго. И байк — в этом сыграл не последнюю роль.</p>
+    </div>
+</section>
+
 {% endblock %}
