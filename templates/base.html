@@ -16,34 +16,38 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile.css' %}" media="screen and (max-width: 768px)">
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-        ym(112087869, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/112087869" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7F2DX55X4"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        // Проверяем cookie согласия
+        function hasCookieConsent() {
+            return document.cookie.split(';').some(function(c) {
+                return c.trim().startsWith('cookie_consent=accepted');
+            });
+        }
 
-        gtag('config', 'G-C7F2DX55X4');
+        // Динамическая загрузка Яндекс.Метрики (только после согласия)
+        function loadYandexMetrica() {
+            if (window._metricaLoaded) return;
+            window._metricaLoaded = true;
+
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+            ym(112087869, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+            });
+        }
+
+        // При загрузке страницы: если согласие уже есть — грузим Метрику сразу
+        if (hasCookieConsent()) {
+            loadYandexMetrica();
+        }
     </script>
-
 </head>
 <body>
     <!-- Винтажный шум -->
@@ -76,117 +80,14 @@
 
         <!-- МЕНЮ -->
         <nav class="main-nav" style="display: flex; justify-content: center; gap: 30px; margin: 15px 0 5px; flex-wrap: wrap;">
-            <a href="{% url 'index' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >Главная</a>
-
-            <a href="{% url 'about' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >О проекте</a>
-
-            <a href="{% url 'history' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >История</a>
-
-            <a href="{% url 'models' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >Модели</a>
-
-            <a href="{% url 'comparison_list' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >Сравнительные материалы</a>
-
-            <a href="{% url 'soa' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >Сыны Анархии</a>
-
-            <a href="{% url 'blog_index' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >Блог</a>
-
-            <a href="{% url 'contact' %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';"
-            onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';"
-            >Контакты</a>
+            <a href="{% url 'index' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Главная</a>
+            <a href="{% url 'about' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">О проекте</a>
+            <a href="{% url 'history' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">История</a>
+            <a href="{% url 'models' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Модели</a>
+            <a href="{% url 'comparison_list' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Сравнительные материалы</a>
+            <a href="{% url 'soa' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Сыны Анархии</a>
+            <a href="{% url 'blog_index' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Блог</a>
+            <a href="{% url 'contact' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Контакты</a>
         </nav>
     </header>
 
@@ -211,6 +112,9 @@
             <div>
                 <a href="{% url 'legal' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Юридическая информация / Legal</a>
             </div>
+            <div>
+                <a href="{% url 'privacy' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Политика конфиденциальности / Privacy</a>
+            </div>
         </div>
 
         <p style="color: #666; margin: 5px auto; line-height: 1.5; max-width: 800px;">
@@ -227,5 +131,62 @@
             {% endfor %}
         </div>
     </footer>
+
+    <!-- COOKIE-БАННЕР -->
+    <div id="cookieBanner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0d0e0f; border-top: 2px solid #b22222; padding: 20px; z-index: 9999; box-shadow: 0 -5px 30px rgba(0,0,0,0.7);">
+        <div style="max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px;">
+            <div style="flex: 1; min-width: 280px; color: #aaa; font-size: 0.9rem; line-height: 1.5;">
+                Мы используем cookie-файлы для работы сайта и анализа посещаемости. Нажимая «Принять», вы соглашаетесь с обработкой данных в соответствии с
+                <a href="/privacy/" style="color: #b22222; text-decoration: underline;">Политикой конфиденциальности</a>.
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button id="cookieAccept" style="padding: 10px 24px; background: #b22222; color: #fff; border: none; border-radius: 4px; font-family: 'Impact', sans-serif; letter-spacing: 1px; font-size: 0.95rem; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.background='#ff3333';" onmouseout="this.style.background='#b22222';">ПРИНЯТЬ</button>
+                <button id="cookieReject" style="padding: 10px 24px; background: transparent; color: #888; border: 1px solid #444; border-radius: 4px; font-family: 'Impact', sans-serif; letter-spacing: 1px; font-size: 0.95rem; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.borderColor='#888';" onmouseout="this.style.color='#888'; this.style.borderColor='#444';">ОТКЛОНИТЬ</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === COOKIE-БАННЕР ===
+        (function() {
+            function getCookie(name) {
+                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                return match ? match[2] : null;
+            }
+
+            function submitConsent(accepted) {
+                var csrfToken = '{{ csrf_token }}';
+                var formData = new FormData();
+                formData.append('consent', accepted ? 'accepted' : 'rejected');
+                formData.append('csrfmiddlewaretoken', csrfToken);
+
+                fetch('/cookie-consent/', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'same-origin'
+                }).then(function() {
+                    if (accepted && typeof loadYandexMetrica === 'function') {
+                        loadYandexMetrica();
+                    }
+                    document.getElementById('cookieBanner').style.display = 'none';
+                }).catch(function() {
+                    document.getElementById('cookieBanner').style.display = 'none';
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                if (!getCookie('cookie_consent')) {
+                    document.getElementById('cookieBanner').style.display = 'block';
+                }
+
+                document.getElementById('cookieAccept').addEventListener('click', function() {
+                    submitConsent(true);
+                });
+                document.getElementById('cookieReject').addEventListener('click', function() {
+                    submitConsent(false);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

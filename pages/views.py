@@ -2,11 +2,22 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template.loader import render_to_string
+from django.views.decorators.http import require_POST
 import requests
-from .models import ComparisonArticle, ContactMessage
+from .models import ComparisonArticle, ContactMessage, CookieConsent
 from bikes.models import Bike
+
+
+def get_client_ip(request):
+    """Возвращает IP клиента, учитывая прокси."""
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 
 def send_telegram_notification(name, email, message):
@@ -148,6 +159,13 @@ def legal(request):
     return render(request, 'legal.html', {'breadcrumbs': breadcrumbs})
 
 
+def privacy(request):
+    breadcrumbs = [
+        {'name': 'Политика конфиденциальности', 'url': ''},
+    ]
+    return render(request, 'privacy.html', {'breadcrumbs': breadcrumbs})
+
+
 def sources(request):
     breadcrumbs = [
         {'name': 'Источники', 'url': ''},
@@ -179,6 +197,12 @@ def contact_submit(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
+        consent = request.POST.get('consent')
+
+        # Проверка согласия на обработку ПДн
+        if not consent:
+            messages.error(request, 'Необходимо согласие на обработку персональных данных.')
+            return redirect('contact')
 
         # Сохраняем в базу данных
         ContactMessage.objects.create(name=name, email=email, message=message)
@@ -189,6 +213,30 @@ def contact_submit(request):
         messages.success(request, 'Сообщение отправлено! Мы ответим вам в ближайшее время.')
         return redirect('contact')
     return redirect('contact')
+
+
+@require_POST
+def cookie_consent_submit(request):
+    """Сохраняет выбор пользователя по cookie."""
+    consent = request.POST.get('consent') == 'accepted'
+    ip = get_client_ip(request)
+    ua = request.META.get('HTTP_USER_AGENT', '')
+
+    CookieConsent.objects.create(
+        ip_address=ip,
+        user_agent=ua,
+        consent_given=consent,
+    )
+
+    response = JsonResponse({'status': 'ok', 'consent': consent})
+    # Cookie на 1 год
+    response.set_cookie(
+        'cookie_consent',
+        'accepted' if consent else 'rejected',
+        max_age=60 * 60 * 24 * 365,
+        samesite='Lax',
+    )
+    return response
 
 
 # === СЫНЫ АНАРХИИ: СТАТЬИ О ГЕРОЯХ ===

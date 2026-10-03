@@ -7,7 +7,7 @@ from pages.views import (
     index, about, history, models_list, comparison_list, comparison_detail,
     soa, legal, sources, bike_detail, contact, contact_submit,
     soa_jax, soa_clay, soa_tig, soa_chibs, soa_juice, soa_happy, soa_opie,
-    sitemap_view,
+    sitemap_view, privacy, cookie_consent_submit,
 )
 
 urlpatterns = [
@@ -32,6 +32,8 @@ urlpatterns = [
     path('soa/opie-winston/', soa_opie, name='soa_opie'),
 
     path('legal/', legal, name='legal'),
+    path('privacy/', privacy, name='privacy'),
+    path('cookie-consent/', cookie_consent_submit, name='cookie_consent_submit'),
     path('sources/', sources, name='sources'),
     path('contact/', contact, name='contact'),
     path('contact/submit/', contact_submit, name='contact_submit'),

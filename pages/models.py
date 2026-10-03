@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Bike(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название модели')
     code = models.CharField(max_length=20, verbose_name='Код (FXD, FXDB и т.д.)')
@@ -25,6 +26,7 @@ class Bike(models.Model):
     def __str__(self):
         return f"{self.name} ({self.code})"
 
+
 class ComparisonArticle(models.Model):
     title = models.CharField(max_length=200, verbose_name='Заголовок')
     slug = models.SlugField(unique=True, verbose_name='ЧПУ (ссылка)')
@@ -41,6 +43,7 @@ class ComparisonArticle(models.Model):
     def __str__(self):
         return self.title
 
+
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
     email = models.EmailField(verbose_name='Email')
@@ -55,3 +58,20 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.email})"
+
+
+class CookieConsent(models.Model):
+    """Хранит доказательства согласия на обработку cookie (152-ФЗ)."""
+    ip_address = models.GenericIPAddressField(verbose_name='IP-адрес')
+    user_agent = models.TextField(verbose_name='User-Agent')
+    consent_given = models.BooleanField(verbose_name='Согласие дано')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время')
+
+    class Meta:
+        verbose_name = 'Согласие на cookie'
+        verbose_name_plural = 'Согласия на cookie'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        status = 'Принято' if self.consent_given else 'Отклонено'
+        return f"{self.ip_address} — {status} — {self.created_at:%d.%m.%Y %H:%M}"
