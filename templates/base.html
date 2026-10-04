@@ -51,6 +51,9 @@
     </script>
 </head>
 <body>
+    <!-- ПОЛОСА ПРОГРЕССА ЧТЕНИЯ -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Винтажный шум -->
     <div class="vintage-overlay"></div>
 
@@ -187,6 +190,25 @@
                     submitConsent(false);
                 });
             });
+        })();
+    </script>
+
+    <script>
+        // === SCROLL PROGRESS ===
+        (function() {
+            var progressBar = document.getElementById('scrollProgress');
+            if (!progressBar) return;
+
+            function updateProgress() {
+                var scrollTop = window.scrollY || document.documentElement.scrollTop;
+                var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = percent + '%';
+            }
+
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener('resize', updateProgress);
+            updateProgress();  // при загрузке страницы
         })();
     </script>
 </body>

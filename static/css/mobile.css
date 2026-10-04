@@ -57,6 +57,11 @@
     .breadcrumbs {
         font-size: 0.8rem;
     }
+
+    /* Полоса прогресса — чуть толще на планшетах */
+    .scroll-progress {
+        height: 4px;
+    }
 }
 
 /* Телефоны (до 480px) */
@@ -127,5 +132,10 @@
         width: 40px !important;
         top: 10px !important;
         right: 10px !important;
+    }
+
+    /* Полоса прогресса — на телефонах ещё толще */
+    .scroll-progress {
+        height: 4px;
     }
 }
