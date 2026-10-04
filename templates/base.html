@@ -211,5 +211,81 @@
             updateProgress();  // при загрузке страницы
         })();
     </script>
+
+    <script>
+        // === SCROLL REVEAL ===
+        (function() {
+            // Уважаем настройки пользователя
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) return;
+
+            // Находим все элементы, которые надо анимировать
+            // Селекторы: карточки, секции, статьи, но не трогаем header/footer/nav
+            var selectors = [
+                '.bike-card',
+                '.bike-grid > div',
+                'main section',
+                'main article',
+                'main > div > section',
+                'main > div > article'
+            ];
+
+            var elements = [];
+            selectors.forEach(function(sel) {
+                document.querySelectorAll(sel).forEach(function(el) {
+                    // Не добавляем, если уже есть класс или если элемент в шапке/подвале
+                    if (el.classList.contains('reveal')) return;
+                    if (el.closest('header') || el.closest('footer') || el.closest('nav')) return;
+                    el.classList.add('reveal');
+                    elements.push(el);
+                });
+            });
+
+            if (elements.length === 0) return;
+
+            // IntersectionObserver: следим за элементами
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target);  // анимируем один раз
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elements.forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+
+    <script>
+        // === SPOTLIGHT ===
+        (function() {
+            // Находим все элементы с классом .bike-card или .spotlight
+            var cards = document.querySelectorAll('.bike-card, .spotlight');
+            if (cards.length === 0) return;
+
+            cards.forEach(function(card) {
+                card.classList.add('spotlight');
+
+                card.addEventListener('mousemove', function(e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    card.style.setProperty('--mx', x + 'px');
+                    card.style.setProperty('--my', y + 'px');
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    card.style.removeProperty('--mx');
+                    card.style.removeProperty('--my');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

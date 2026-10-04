@@ -1,0 +1,27 @@
+{% load static %}
+
+{% if related_articles %}
+<section class="related-articles" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #333;">
+    <h3 style="
+        color: #c0b090;
+        font-family: 'Impact', sans-serif;
+        letter-spacing: 4px;
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 30px;
+    ">
+        ЧИТАЙТЕ ТАКЖЕ
+    </h3>
+
+    <div class="related-grid">
+        {% for article in related_articles %}
+            <a href="{{ article.url }}" class="related-card">
+                <div class="related-card-title">{{ article.title }}</div>
+                {% if article.subtitle %}
+                    <div class="related-card-subtitle">{{ article.subtitle }}</div>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

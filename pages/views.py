@@ -246,7 +246,12 @@ def soa_jax(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Джекс Теллер', 'url': ''},
     ]
-    return render(request, 'soa_heroes/jax-teller.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'КЛЭЙ МОРРОУ', 'subtitle': '2008 Dyna Super Glide', 'url': '/soa/clay-morrow/'},
+        {'title': 'ОППИ УИНСТОН', 'subtitle': '2001 Dyna Super Glide Sport', 'url': '/soa/opie-winston/'},
+        {'title': 'ТИГ ТРЕЙГЕР', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/tig-trager/'},
+    ]
+    return render(request, 'soa_heroes/jax-teller.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 def soa_clay(request):
@@ -254,7 +259,12 @@ def soa_clay(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Клэй Морроу', 'url': ''},
     ]
-    return render(request, 'soa_heroes/clay-morrow.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'ДЖЕКС ТЕЛЛЕР', 'subtitle': '2003 FXDX Dyna Super Glide Sport', 'url': '/soa/jax-teller/'},
+        {'title': 'ТИГ ТРЕЙГЕР', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/tig-trager/'},
+        {'title': 'ОППИ УИНСТОН', 'subtitle': '2001 Dyna Super Glide Sport', 'url': '/soa/opie-winston/'},
+    ]
+    return render(request, 'soa_heroes/clay-morrow.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 def soa_tig(request):
@@ -262,7 +272,12 @@ def soa_tig(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Тиг Трейгер', 'url': ''},
     ]
-    return render(request, 'soa_heroes/tig-trager.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'ДЖЕКС ТЕЛЛЕР', 'subtitle': '2003 FXDX Dyna Super Glide Sport', 'url': '/soa/jax-teller/'},
+        {'title': 'ЧИБС ТЕЛФОРД', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/chibs-telford/'},
+        {'title': 'ОППИ УИНСТОН', 'subtitle': '2001 Dyna Super Glide Sport', 'url': '/soa/opie-winston/'},
+    ]
+    return render(request, 'soa_heroes/tig-trager.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 def soa_chibs(request):
@@ -270,7 +285,12 @@ def soa_chibs(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Чибс Телфорд', 'url': ''},
     ]
-    return render(request, 'soa_heroes/chibs-telford.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'ТИГ ТРЕЙГЕР', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/tig-trager/'},
+        {'title': 'ДЖЕКС ТЕЛЛЕР', 'subtitle': '2003 FXDX Dyna Super Glide Sport', 'url': '/soa/jax-teller/'},
+        {'title': 'ШУСТРЫЙ', 'subtitle': '2007 Dyna Street Bob (Twin Cam 110)', 'url': '/soa/juice-ortiz/'},
+    ]
+    return render(request, 'soa_heroes/chibs-telford.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 def soa_juice(request):
@@ -278,7 +298,12 @@ def soa_juice(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Шустрый', 'url': ''},
     ]
-    return render(request, 'soa_heroes/juice-ortiz.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'ЧИБС ТЕЛФОРД', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/chibs-telford/'},
+        {'title': 'ХЭППИ ЛОУМЕН', 'subtitle': '2011 Dyna Street Bob', 'url': '/soa/happy-lowman/'},
+        {'title': 'ДЖЕКС ТЕЛЛЕР', 'subtitle': '2003 FXDX Dyna Super Glide Sport', 'url': '/soa/jax-teller/'},
+    ]
+    return render(request, 'soa_heroes/juice-ortiz.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 def soa_happy(request):
@@ -286,7 +311,12 @@ def soa_happy(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Хэппи Лоумен', 'url': ''},
     ]
-    return render(request, 'soa_heroes/happy-lowman.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'ТИГ ТРЕЙГЕР', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/tig-trager/'},
+        {'title': 'ДЖЕКС ТЕЛЛЕР', 'subtitle': '2003 FXDX Dyna Super Glide Sport', 'url': '/soa/jax-teller/'},
+        {'title': 'ШУСТРЫЙ', 'subtitle': '2007 Dyna Street Bob (Twin Cam 110)', 'url': '/soa/juice-ortiz/'},
+    ]
+    return render(request, 'soa_heroes/happy-lowman.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 def soa_opie(request):
@@ -294,7 +324,12 @@ def soa_opie(request):
         {'name': 'Сыны Анархии', 'url': '/soa/'},
         {'name': 'Оппи Уинстон', 'url': ''},
     ]
-    return render(request, 'soa_heroes/opie-winston.html', {'breadcrumbs': breadcrumbs})
+    related = [
+        {'title': 'ДЖЕКС ТЕЛЛЕР', 'subtitle': '2003 FXDX Dyna Super Glide Sport', 'url': '/soa/jax-teller/'},
+        {'title': 'КЛЭЙ МОРРОУ', 'subtitle': '2008 Dyna Super Glide', 'url': '/soa/clay-morrow/'},
+        {'title': 'ТИГ ТРЕЙГЕР', 'subtitle': '2006 FXDBI Dyna Street Bob', 'url': '/soa/tig-trager/'},
+    ]
+    return render(request, 'soa_heroes/opie-winston.html', {'breadcrumbs': breadcrumbs, 'related_articles': related})
 
 
 # === SITEMAP ===

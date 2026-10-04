@@ -35,20 +35,20 @@
     <p style="color: #aaa; text-align: center; font-style: italic;">Текст статьи скоро появится.</p>
     {% endblock %}
 
+    <!-- ЧИТАЙТЕ ТАКЖЕ -->
+    {% include 'includes/related_articles.html' with related_articles=related_articles %}
+
     <!-- КНОПКА НАЗАД -->
     <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #333;">
-        <a href="/soa/" style="
+        <a href="/soa/" class="btn-fill" style="
             display: inline-block;
             padding: 12px 30px;
-            background: transparent;
             border: 2px solid #b22222;
-            color: #b22222;
             text-decoration: none;
             font-family: 'Impact', sans-serif;
             letter-spacing: 3px;
             font-size: 1rem;
-            transition: all 0.3s;
-        " onmouseover="this.style.background='#b22222'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='#b22222';">
+        ">
             ← НАЗАД К СЫНАМ АНАРХИИ
         </a>
     </div>

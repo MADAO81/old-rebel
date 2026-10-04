@@ -220,3 +220,130 @@ footer .skull-icon {
     0% { background-position: 0% 0; }
     100% { background-position: -200% 0; }
 }
+
+/* === SCROLL REVEAL (появление блоков при скролле) === */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Уважаем настройки пользователя: если отключена анимация — не анимируем */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* === SPOTLIGHT (подсветка карточек за курсором) === */
+.spotlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(
+        220px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(178, 34, 34, 0.35),
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.spotlight:hover::before {
+    opacity: 1;
+}
+
+/* Контент карточки — выше свечения */
+.spotlight > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* === BUTTON FILL (заливка кнопок градиентом) === */
+.btn-fill {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: #b22222;  /* базовый цвет текста для кнопок-ссылок */
+    transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.btn-fill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #b22222, #8b1a1a, #b22222);
+    transform: translateX(-101%);
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.btn-fill:hover::before {
+    transform: translateX(0);
+}
+
+.btn-fill:hover {
+    color: #fff;
+}
+
+/* === RELATED ARTICLES («Читайте также») === */
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.related-card {
+    display: block;
+    background: #1a1c1e;
+    border: 1px solid #b22222;
+    border-radius: 8px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.related-card:hover {
+    border-color: #ff3333;
+    box-shadow: 0 0 25px rgba(178, 34, 34, 0.4);
+    transform: translateY(-3px);
+}
+
+.related-card-title {
+    color: #b22222;
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 2px;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+.related-card:hover .related-card-title {
+    color: #ff6666;
+}
+
+.related-card-subtitle {
+    color: #888;
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.4;
+}
