@@ -9,17 +9,34 @@
 
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
-    <h1 style="color: #c0b090; font-family: 'Georgia', serif; font-size: 2.2rem; border-bottom: 1px solid #2a2c2e; padding-bottom: 10px;">
-        {{ article.title }}
-    </h1>
+    <!-- ЗАГОЛОВОК СТАТЬИ -->
+    <section>
+        <h1 style="color: #c0b090; font-family: 'Georgia', serif; font-size: 2.2rem; border-bottom: 1px solid #2a2c2e; padding-bottom: 10px;">
+            {{ article.title }}
+        </h1>
+    </section>
 
-    <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+    <!-- ТЕКСТ СТАТЬИ -->
+    <section style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
         {{ article.content|linebreaks }}
+    </section>
+
+    <!-- КНОПКА НАЗАД -->
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="{% url 'comparison_list' %}" class="btn-fill" style="
+            display: inline-block;
+            padding: 12px 40px;
+            border: 2px solid #b22222;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 2px;
+            font-size: 1rem;
+        ">
+            ← К СПИСКУ СТАТЕЙ
+        </a>
     </div>
 
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="{% url 'comparison_list' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; letter-spacing: 1px;">← К СПИСКУ СТАТЕЙ</a>
-    </div>
 </div>
 
 {% endblock %}
