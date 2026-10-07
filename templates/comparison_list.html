@@ -16,19 +16,31 @@
         Здесь собраны сравнения моделей, двигателей и систем питания
     </p>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <div class="related-grid">
         {% for article in articles %}
-        <div style="background: #1a1c1e; border: 1px solid #2a2c2e; border-radius: 8px; padding: 20px; width: 280px; border-top: 4px solid #b22222;">
-            <h3 style="color: #c0b090; font-size: 1.2rem; margin: 5px 0;">
+        <div class="related-card spotlight" style="border-top: 4px solid #b22222;">
+            <div class="related-card-title" style="font-size: 1.2rem; letter-spacing: 1px; font-family: 'Georgia', serif; text-transform: none;">
                 {{ article.title }}
-            </h3>
-            <p style="color: #888; font-size: 0.85rem; margin: 5px 0 10px 0;">
+            </div>
+            <div class="related-card-subtitle" style="margin-bottom: 15px;">
                 {{ article.preview|truncatechars:80 }}
-            </p>
-            <a href="{% url 'comparison_detail' article.slug %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; letter-spacing: 1px;">Читать →</a>
+            </div>
+            <a href="{% url 'comparison_detail' article.slug %}" style="
+                color: #b22222;
+                text-decoration: none;
+                font-family: 'Impact', sans-serif;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                transition: color 0.3s ease;
+            "
+            onmouseover="this.style.color='#ff6666';"
+            onmouseout="this.style.color='#b22222';"
+            >
+                ЧИТАТЬ →
+            </a>
         </div>
         {% empty %}
-        <p style="color: #888;">Пока нет статей. Но они обязательно появятся.</p>
+        <p style="color: #888; text-align: center;">Пока нет статей. Но они обязательно появятся.</p>
         {% endfor %}
     </div>
 </div>
