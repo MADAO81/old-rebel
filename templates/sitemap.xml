@@ -68,11 +68,22 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Сравнительные статьи (динамически) -->
+    {% for article in comparison_articles %}
+    <url>
+        <loc>https://old-rebel.com/comparison/{{ article.slug }}/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+
     <url>
         <loc>https://old-rebel.com/blog/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- Модели (динамически) -->
     {% for bike in bikes %}
     <url>
         <loc>https://old-rebel.com/bikes/{{ bike.slug }}/</loc>
