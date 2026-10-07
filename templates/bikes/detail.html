@@ -11,10 +11,10 @@
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
     <!-- ЗАГОЛОВОК -->
-    <div style="
-        background: #1a1c1e; 
-        padding: 25px; 
-        border-radius: 8px; 
+    <section style="
+        background: #1a1c1e;
+        padding: 25px;
+        border-radius: 8px;
         border-left: 6px solid #b22222;
         margin-bottom: 30px;
     ">
@@ -27,28 +27,16 @@
         <div style="color: #888; font-size: 1rem; margin-top: 5px;">
             {{ bike.years }}
         </div>
-    </div>
+    </section>
 
-    <!-- ФОТО -->
-    {% if bike.image %}
-    <div style="text-align: center; margin: 20px 0;">
-        <img src="{{ bike.image.url }}" alt="{{ bike.name }}" style="max-width: 100%; border-radius: 8px; border: 2px solid #b22222;">
-        {% if bike.photo_credit %}
-        <div style="color: #666; font-size: 0.8rem; font-style: italic; margin-top: 5px;">
-            📸 {{ bike.photo_credit }}
-        </div>
-        {% endif %}
-    </div>
-    {% endif %}
-
-    <!-- ХАРАКТЕРИСТИКИ -->
-    <div style="
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-        gap: 15px; 
-        background: #14181c; 
-        padding: 20px; 
-        border-radius: 8px; 
+    <!-- ОСНОВНАЯ ИНФОРМАЦИЯ (три колонки) -->
+    <section style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        background: #14181c;
+        padding: 20px;
+        border-radius: 8px;
         border: 1px solid #2a2c2e;
         margin-bottom: 30px;
     ">
@@ -64,13 +52,13 @@
             <div style="color: #666; font-size: 0.8rem; letter-spacing: 1px;">ДВИГАТЕЛЬ</div>
             <div style="color: #c0b090; font-size: 1rem;">{{ bike.engine }}</div>
         </div>
-    </div>
+    </section>
 
     <!-- ОПИСАНИЕ -->
-    <div style="
-        background: #1a1c1e; 
-        padding: 25px; 
-        border-radius: 8px; 
+    <section style="
+        background: #1a1c1e;
+        padding: 25px;
+        border-radius: 8px;
         border: 1px solid #2a2c2e;
         margin-bottom: 30px;
     ">
@@ -80,25 +68,55 @@
         <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
             {{ bike.description|linebreaks }}
         </div>
-    </div>
+    </section>
+
+    <!-- БЛОК "ИНТЕРЕСНО ЗНАТЬ" (если есть фото или предшественник) -->
+    {% if bike.is_predecessor or bike.previous_model %}
+    <section style="
+        background: #14181c;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #2a2c2e;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 30px;
+    ">
+        {% if bike.is_predecessor %}
+        <div style="
+            background: #b22222;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 1px;
+        ">
+            ⚡ ПРЕДШЕСТВЕННИК DYNA
+        </div>
+        {% endif %}
+
+        {% if bike.previous_model %}
+        <div style="color: #888; font-size: 0.9rem;">
+            Предшественник: <a href="{% url 'bike_detail' bike.previous_model.slug %}" style="color: #b22222; text-decoration: none;">{{ bike.previous_model.name }}</a>
+        </div>
+        {% endif %}
+    </section>
+    {% endif %}
 
     <!-- КНОПКА "НАЗАД" -->
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="{% url 'models' %}" style="
-            display: inline-block; 
-            color: #b22222; 
-            padding: 12px 40px; 
-            border: 2px solid #b22222; 
-            border-radius: 4px; 
-            text-decoration: none; 
-            font-family: 'Impact', sans-serif; 
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="{% url 'models' %}" class="btn-fill" style="
+            display: inline-block;
+            padding: 12px 40px;
+            border: 2px solid #b22222;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Impact', sans-serif;
             letter-spacing: 2px;
             font-size: 1rem;
-            transition: all 0.3s ease;
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff';"
-        onmouseout="this.style.background='transparent'; this.style.color='#b22222';"
-        >
+        ">
             ← К СПИСКУ МОДЕЛЕЙ
         </a>
     </div>
