@@ -10,48 +10,9 @@
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
     <!-- МАЛЕНЬКИЙ ФЛАГ С ПОДСКАЗКОЙ -->
-    <div class="about-flag-wrapper" style="
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 60px;
-        cursor: help;
-        transition: transform 0.3s ease;
-        z-index: 10;
-    "
-    onmouseover="this.style.transform='scale(1.1) rotate(-2deg)';"
-    onmouseout="this.style.transform='scale(1) rotate(0deg)';"
-    >
+    <div class="about-flag-wrapper">
         <img src="{% static 'img/confederate-flag.svg' %}" alt="Флаг Конфедерации" style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 0 15px rgba(178, 34, 34, 0.3);">
-        <div class="flag-tooltip" style="
-            position: absolute;
-            bottom: calc(100% + 15px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1a1a1a;
-            color: #d4c9b8;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-            text-align: center;
-            border: 1px solid #8b7a6a;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 12px rgba(180, 150, 120, 0.15);
-            white-space: normal;
-            min-width: 220px;
-            max-width: 340px;
-            line-height: 1.5;
-            word-wrap: break-word;
-        "
-        onmouseover="this.style.opacity='1';"
-        onmouseout="this.style.opacity='0';"
-        >
+        <div class="flag-tooltip">
             "Oh, I'm a good old rebel, now that's just what I am..."
         </div>
     </div>
