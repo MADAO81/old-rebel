@@ -112,24 +112,10 @@
     </div>
 
     <!-- СЕТКА КАРТОЧЕК -->
-    <div class="bike-grid" style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
+    <div class="bike-grid">
 
         {% for bike in bikes %}
-        <div style="
-            background: #1a1c1e;
-            border: 1px solid #2a2c2e;
-            border-radius: 8px;
-            padding: 20px;
-            width: 300px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid #b22222;
-        "
-        onmouseover="this.style.borderColor='#b22222'; this.style.boxShadow='0 0 30px rgba(178,34,34,0.3)';"
-        onmouseout="this.style.borderColor='#2a2c2e'; this.style.boxShadow='0 0 20px rgba(0,0,0,0.5)';"
-        >
+        <div class="bike-card spotlight">
             <div style="
                 font-family: 'Impact', sans-serif;
                 font-size: 1.8rem;
