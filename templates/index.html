@@ -10,7 +10,7 @@
     <!-- ХЛЕБНЫЕ КРОШКИ -->
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
-    <!-- ВИНТАЖНЫЙ ЗАГОЛОВОК С АНИМАЦИЕЙ (исправленный) -->
+    <!-- ВИНТАЖНЫЙ ЗАГОЛОВОК -->
     <div style="text-align: center; margin: 10px 0 15px;">
         <h2 style="
             font-family: 'Impact', 'Arial Black', sans-serif;
@@ -31,12 +31,7 @@
             width: fit-content;
             max-width: 90%;
             position: relative;
-            transition: all 0.3s ease;
-            cursor: default;
-        "
-        onmouseover="this.style.color='#ffffff'; this.style.background='#b22222'; this.style.borderColor='#b22222'; this.style.textShadow='none';"
-        onmouseout="this.style.color='#b22222'; this.style.background='#121212'; this.style.borderColor='#b22222'; this.style.textShadow='0 0 20px rgba(178,34,34,0.2), 2px 2px 0 #0d0e0f, 3px 3px 0 rgba(0,0,0,0.5)';"
-        >
+        ">
             ДОБРО ПОЖАЛОВАТЬ В МИР DYNA
             <div style="
                 position: absolute;
@@ -86,7 +81,7 @@
 
         <!-- Фото 1: Dyna Sturgis (FXDB) 1991 -->
         <a href="{% url 'bike_detail' 'dyna-sturgis-fxdb' %}" style="text-decoration: none; width: 100%; max-width: 400px;">
-            <div style="
+            <div class="spotlight" style="
                 background: #1a1c1e;
                 width: 100%;
                 border-radius: 8px;
@@ -112,7 +107,7 @@
 
         <!-- Фото 2: Последняя Dyna — FXDLS Low Rider S (2017) -->
         <a href="{% url 'bike_detail' 'dyna-low-rider-s-fxdls' %}" style="text-decoration: none; width: 100%; max-width: 400px;">
-            <div style="
+            <div class="spotlight" style="
                 background: #1a1c1e;
                 width: 100%;
                 border-radius: 8px;
@@ -216,7 +211,7 @@
                 перекочевала в будущее семейство и стала его визитной карточкой.
             </p>
 
-            <!-- 1991 — Рождение Dyna (исправленный блок) -->
+            <!-- 1991 — Рождение Dyna -->
             <h4 style="
                 color: #c0b090;
                 font-family: 'Georgia', 'Times New Roman', serif;
@@ -289,10 +284,8 @@
 
     <!-- КНОПКА -->
     <div style="text-align: center; margin-top: 30px;">
-        <a href="{% url 'models' %}" style="
+        <a href="{% url 'models' %}" class="btn-fill" style="
             display: inline-block;
-            background: transparent;
-            color: #b22222;
             padding: 12px 40px;
             border: 2px solid #b22222;
             border-radius: 4px;
@@ -300,14 +293,7 @@
             font-family: 'Impact', sans-serif;
             letter-spacing: 2px;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
-            background: linear-gradient(180deg, rgba(178,34,34,0.05) 0%, transparent 100%);
-            text-shadow: 0 0 20px rgba(178,34,34,0.2);
-            box-shadow: inset 0 0 30px rgba(178,34,34,0.05);
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff'; this.style.boxShadow='0 0 40px rgba(178,34,34,0.4)';"
-        onmouseout="this.style.background='transparent'; this.style.color='#b22222'; this.style.boxShadow='inset 0 0 30px rgba(178,34,34,0.05)';"
-        >
+        ">
             СМОТРЕТЬ ВСЕ МОДЕЛИ →
         </a>
     </div>
