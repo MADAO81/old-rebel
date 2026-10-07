@@ -212,7 +212,7 @@ def bike_detail(request, slug):
     other_bikes = Bike.objects.exclude(slug__in=exclude_slugs).order_by('years')
 
     # Ищем модели с похожим кодом (например, FXD → FXDX → FXDXT)
-    code_prefix = bike.code[:3]  # первые 3 символа кода
+    code_prefix = bike.code[:3]
     similar = [b for b in other_bikes if b.code.startswith(code_prefix)][:3]
 
     # Если похожих мало — добираем по годам
@@ -388,5 +388,9 @@ def soa_opie(request):
 
 def sitemap_view(request):
     bikes = Bike.objects.all()
-    xml = render_to_string('sitemap.xml', {'bikes': bikes})
+    comparison_articles = ComparisonArticle.objects.all().order_by('order')
+    xml = render_to_string('sitemap.xml', {
+        'bikes': bikes,
+        'comparison_articles': comparison_articles,
+    })
     return HttpResponse(xml, content_type='application/xml')
