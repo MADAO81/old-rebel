@@ -139,9 +139,22 @@ def comparison_detail(request, slug):
         {'name': 'Сравнительные материалы', 'url': '/comparison/'},
         {'name': article.title, 'url': ''},
     ]
+
+    # Связанные: все остальные сравнения (до 4 штук)
+    other_articles = ComparisonArticle.objects.exclude(slug=slug).order_by('order')[:4]
+    related = [
+        {
+            'title': a.title.upper(),
+            'subtitle': a.preview[:80] + ('...' if len(a.preview) > 80 else ''),
+            'url': f'/comparison/{a.slug}/',
+        }
+        for a in other_articles
+    ]
+
     return render(request, 'comparison_detail.html', {
         'article': article,
-        'breadcrumbs': breadcrumbs
+        'breadcrumbs': breadcrumbs,
+        'related_articles': related,
     })
 
 
@@ -179,9 +192,48 @@ def bike_detail(request, slug):
         {'name': 'Модели', 'url': '/models/'},
         {'name': bike.name, 'url': ''},
     ]
+
+    # Связанные: потомок + 3 другие модели
+    related = []
+
+    # 1. Потомок (если есть)
+    if bike.previous_model:
+        related.append({
+            'title': bike.previous_model.name.upper(),
+            'subtitle': f"{bike.previous_model.years} • {bike.previous_model.code}",
+            'url': f'/bikes/{bike.previous_model.slug}/',
+        })
+
+    # 2. Другие модели — исключаем текущую и уже добавленного потомка
+    exclude_slugs = [bike.slug]
+    if bike.previous_model:
+        exclude_slugs.append(bike.previous_model.slug)
+
+    other_bikes = Bike.objects.exclude(slug__in=exclude_slugs).order_by('years')
+
+    # Ищем модели с похожим кодом (например, FXD → FXDX → FXDXT)
+    code_prefix = bike.code[:3]  # первые 3 символа кода
+    similar = [b for b in other_bikes if b.code.startswith(code_prefix)][:3]
+
+    # Если похожих мало — добираем по годам
+    if len(similar) < 3:
+        for b in other_bikes:
+            if b not in similar:
+                similar.append(b)
+            if len(similar) >= 3:
+                break
+
+    for b in similar[:3]:
+        related.append({
+            'title': b.name.upper(),
+            'subtitle': f"{b.years} • {b.code}",
+            'url': f'/bikes/{b.slug}/',
+        })
+
     return render(request, 'bikes/detail.html', {
         'bike': bike,
-        'breadcrumbs': breadcrumbs
+        'breadcrumbs': breadcrumbs,
+        'related_articles': related,
     })
 
 
