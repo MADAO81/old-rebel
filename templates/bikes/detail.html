@@ -105,6 +105,9 @@
     </section>
     {% endif %}
 
+    <!-- ЧИТАЙТЕ ТАКЖЕ -->
+    {% include 'includes/related_articles.html' with related_articles=related_articles %}
+
     <!-- КНОПКА "НАЗАД" -->
     <div style="text-align: center; margin-top: 40px;">
         <a href="{% url 'models' %}" class="btn-fill" style="
