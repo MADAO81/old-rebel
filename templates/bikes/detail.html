@@ -33,7 +33,7 @@
     {% if bike.image %}
     <section style="margin-bottom: 30px;">
         <div style="border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
-            <img src="{{ bike.image.url }}" alt="{{ bike.name }}" style="display: block; width: 100%; height: auto;">
+            <img loading="lazy" src="{{ bike.image.url }}" alt="{{ bike.name }}" style="display: block; width: 100%; height: auto;">
         </div>
         {% if bike.photo_credit %}
         <p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: 10px;">
