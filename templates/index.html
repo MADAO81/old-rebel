@@ -5,6 +5,101 @@
 
 {% block content %}
 
+<!-- СТИЛЬ ДЛЯ MARQUEE И COUNT-UP -->
+<style>
+    /* === MARQUEE === */
+    .rebel-marquee {
+        width: 100%;
+        overflow: hidden;
+        background: #0d0e0f;
+        border-top: 1px solid #b22222;
+        border-bottom: 1px solid #b22222;
+        padding: 14px 0;
+        margin: 30px 0;
+        position: relative;
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    }
+
+    .rebel-marquee-track {
+        display: flex;
+        width: max-content;
+        animation: rebelMarquee 45s linear infinite;
+    }
+
+    .rebel-marquee-track span {
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 4px;
+        color: #b22222;
+        text-shadow: 0 0 12px rgba(178, 34, 34, 0.5);
+        white-space: nowrap;
+        padding: 0 20px;
+        user-select: none;
+    }
+
+    @keyframes rebelMarquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .rebel-marquee-track { animation: none; }
+    }
+
+    @media (max-width: 480px) {
+        .rebel-marquee-track span {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            padding: 0 12px;
+        }
+    }
+
+    /* === COUNT-UP === */
+    .rebel-countup {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+        padding: 30px 20px;
+        background: #14181c;
+        border: 1px solid #2a2c2e;
+        border-radius: 8px;
+    }
+
+    .rebel-countup-item {
+        text-align: center;
+    }
+
+    .rebel-countup-num {
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 3rem;
+        color: #b22222;
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(178, 34, 34, 0.5);
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .rebel-countup-label {
+        color: #888;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: 'Georgia', serif;
+    }
+
+    @media (max-width: 480px) {
+        .rebel-countup-num {
+            font-size: 2.2rem;
+        }
+        .rebel-countup-label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+    }
+</style>
+
 <div style="max-width: 900px; margin: 0 auto; padding: 20px;">
 
     <!-- ХЛЕБНЫЕ КРОШКИ -->
@@ -76,6 +171,52 @@
         </p>
     </div>
 
+    <!-- БЕГУЩАЯ СТРОКА -->
+    <div class="rebel-marquee">
+        <div class="rebel-marquee-track">
+            <span>OLD REBEL</span>
+            <span>✦</span>
+            <span>EST. 2022</span>
+            <span>✦</span>
+            <span>DYNA ENCYCLOPEDIA</span>
+            <span>✦</span>
+            <span>RIDE FREE</span>
+            <span>✦</span>
+            <span>FOLLOW YOUR SOUL</span>
+            <span>✦</span>
+            <span>BREAK THE CAGE</span>
+            <span>✦</span>
+            <span>OLD REBEL</span>
+            <span>✦</span>
+            <span>EST. 2022</span>
+            <span>✦</span>
+            <span>DYNA ENCYCLOPEDIA</span>
+            <span>✦</span>
+            <span>RIDE FREE</span>
+            <span>✦</span>
+            <span>FOLLOW YOUR SOUL</span>
+            <span>✦</span>
+            <span>BREAK THE CAGE</span>
+            <span>✦</span>
+        </div>
+    </div>
+
+    <!-- COUNT-UP: ЦИФРЫ -->
+    <div class="rebel-countup">
+        <div class="rebel-countup-item">
+            <div class="rebel-countup-num" data-count="26">0</div>
+            <div class="rebel-countup-label">Лет истории</div>
+        </div>
+        <div class="rebel-countup-item">
+            <div class="rebel-countup-num" data-count="1546">0</div>
+            <div class="rebel-countup-label">FXDB Sturgis — первый тираж</div>
+        </div>
+        <div class="rebel-countup-item">
+            <div class="rebel-countup-num" data-count="450000" data-suffix="+">0</div>
+            <div class="rebel-countup-label">Всего выпущено</div>
+        </div>
+    </div>
+
     <!-- БЛОК С ФОТО (кликабельные) -->
     <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0;">
 
@@ -97,7 +238,7 @@
             onmouseout="this.style.borderColor='#b22222'; this.style.boxShadow='inset 0 0 30px rgba(0,0,0,0.6)';"
             >
                 <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0d0e0f;">
-                    <img src="{% static 'img/sturgis.jpg' %}" alt="Dyna Sturgis 1991" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img loading="lazy" src="{% static 'img/sturgis.jpg' %}" alt="Dyna Sturgis 1991" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 10px; text-align: center; color: #888; font-family: 'Georgia', serif; font-style: italic; font-size: 0.8rem; letter-spacing: 1px; border-top: 1px solid #2a2c2e; flex-shrink: 0;">
                     📸 FXDB Sturgis (1991) — первая Dyna
@@ -123,7 +264,7 @@
             onmouseout="this.style.borderColor='#b22222'; this.style.boxShadow='inset 0 0 30px rgba(0,0,0,0.6)';"
             >
                 <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0d0e0f;">
-                    <img src="{% static 'img/last-dyna.jpg' %}" alt="Последняя Dyna 2017" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img loading="lazy" src="{% static 'img/last-dyna.jpg' %}" alt="Последняя Dyna 2017" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 10px; text-align: center; color: #888; font-family: 'Georgia', serif; font-style: italic; font-size: 0.8rem; letter-spacing: 1px; border-top: 1px solid #2a2c2e; flex-shrink: 0;">
                     📸 Последняя Dyna — FXDLS Low Rider S (2017)

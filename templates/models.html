@@ -6,6 +6,52 @@
 
 {% block content %}
 
+<!-- СТИЛЬ ДЛЯ COUNT-UP -->
+<style>
+    .rebel-countup {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+        padding: 30px 20px;
+        background: #14181c;
+        border: 1px solid #2a2c2e;
+        border-radius: 8px;
+    }
+
+    .rebel-countup-item {
+        text-align: center;
+    }
+
+    .rebel-countup-num {
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 3rem;
+        color: #b22222;
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(178, 34, 34, 0.5);
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .rebel-countup-label {
+        color: #888;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: 'Georgia', serif;
+    }
+
+    @media (max-width: 480px) {
+        .rebel-countup-num {
+            font-size: 2.2rem;
+        }
+        .rebel-countup-label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+    }
+</style>
+
 <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
 
     <!-- ХЛЕБНЫЕ КРОШКИ -->
@@ -20,6 +66,22 @@
             Все модели семейства FX и Dyna в хронологическом порядке
         </p>
         <div style="width: 100px; height: 2px; background: #b22222; margin: 10px auto;"></div>
+    </div>
+
+    <!-- COUNT-UP: ОБЪЁМЫ МОТОРОВ -->
+    <div class="rebel-countup">
+        <div class="rebel-countup-item">
+            <div class="rebel-countup-num" data-count="1340">0</div>
+            <div class="rebel-countup-label">Evolution (1991)</div>
+        </div>
+        <div class="rebel-countup-item">
+            <div class="rebel-countup-num" data-count="1450">0</div>
+            <div class="rebel-countup-label">Twin Cam 88 (1999)</div>
+        </div>
+        <div class="rebel-countup-item">
+            <div class="rebel-countup-num" data-count="1801">0</div>
+            <div class="rebel-countup-label">Twin Cam 110 (2016)</div>
+        </div>
     </div>
 
     <!-- ФИЛЬТРЫ ПО ЭПОХАМ -->
@@ -116,7 +178,6 @@
 
         {% for bike in bikes %}
         <div class="bike-card spotlight">
-            <!-- ФОТО МОДЕЛИ -->
             {% if bike.image %}
                 <div style="margin: -15px -15px 15px -15px; height: 200px; overflow: hidden; border-radius: 8px 8px 0 0;">
                     <img loading="lazy" src="{{ bike.image.url }}" alt="{{ bike.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
