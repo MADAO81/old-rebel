@@ -57,6 +57,19 @@
     <!-- Винтажный шум -->
     <div class="vintage-overlay"></div>
 
+    <!-- КУРСОР-ЧЕРЕП -->
+    <div id="skullCursor" class="skull-cursor" aria-hidden="true">
+        <img src="{% static 'img/skull.svg' %}" alt="">
+    </div>
+
+    <!-- ТУМБЛЕР КУРСОРА -->
+    <div id="cursorToggle" class="cursor-toggle">
+        <label class="cursor-toggle-label">
+            <input type="checkbox" id="cursorToggleCheckbox">
+            <span class="cursor-toggle-text">💀 Курсор-череп</span>
+        </label>
+    </div>
+
     <!-- ШАПКА -->
     <header class="rebel-header">
         <div class="skull-row">
@@ -150,6 +163,196 @@
         </div>
     </div>
 
+    <!-- СТИЛЬ ДЛЯ КУРСОРА-ЧЕРЕПА -->
+    <style>
+        /* Череп-курсор */
+        .skull-cursor {
+            position: fixed;
+            top: 0; left: 0;
+            width: 32px;
+            height: 32px;
+            pointer-events: none;
+            z-index: 99999;
+            display: none;
+            will-change: transform;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 6px rgba(178, 34, 34, 0.8));
+            transition: width 0.2s, height 0.2s;
+        }
+        .skull-cursor img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+        .skull-cursor.active { display: block; }
+        .skull-cursor.hover {
+            width: 48px;
+            height: 48px;
+        }
+        body.skull-cursor-on,
+        body.skull-cursor-on * {
+            cursor: none !important;
+        }
+
+        /* Тумблер */
+        .cursor-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9998;
+            background: #1a1c1e;
+            border: 1px solid #2a2c2e;
+            border-radius: 8px;
+            padding: 10px 14px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .cursor-toggle:hover {
+            border-color: #b22222;
+            box-shadow: 0 0 20px rgba(178, 34, 34, 0.3);
+        }
+        .cursor-toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .cursor-toggle-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #b22222;
+            cursor: pointer;
+        }
+        .cursor-toggle-text {
+            color: #aaa;
+            font-family: 'Impact', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .cursor-toggle {
+                padding: 8px 12px;
+                bottom: 12px;
+                right: 12px;
+            }
+            .cursor-toggle-text {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Скрываем тумблер и курсор на тач-устройствах */
+        @media (hover: none) {
+            .cursor-toggle,
+            .skull-cursor {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <script>
+        // === КУРСОР-ЧЕРЕП ===
+        (function() {
+            // На тач-устройствах не работает
+            var isTouch = window.matchMedia('(hover: none)').matches;
+            if (isTouch) return;
+
+            // Уважаем настройки пользователя
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            var cursor = document.getElementById('skullCursor');
+            var toggle = document.getElementById('cursorToggleCheckbox');
+            if (!cursor || !toggle) return;
+
+            // Инициализируем координаты центром экрана
+            var mouseX = window.innerWidth / 2;
+            var mouseY = window.innerHeight / 2;
+            var cursorX = mouseX;
+            var cursorY = mouseY;
+            var isActive = false;
+            var hasMoved = false;
+
+            // Проверяем localStorage
+            var saved = localStorage.getItem('skull_cursor');
+            if (saved === 'on' && !prefersReduced) {
+                toggle.checked = true;
+                activate();
+            }
+
+            function activate() {
+                isActive = true;
+                cursor.classList.add('active');
+                document.body.classList.add('skull-cursor-on');
+
+                // Сразу ставим череп в центр экрана и делаем видимым
+                cursorX = window.innerWidth / 2;
+                cursorY = window.innerHeight / 2;
+                cursor.style.opacity = '1';
+                cursor.style.transform = 'translate3d(' + cursorX + 'px, ' + cursorY + 'px, 0) translate(-50%, -50%)';
+
+                requestAnimationFrame(loop);
+            }
+
+            function deactivate() {
+                isActive = false;
+                cursor.classList.remove('active');
+                cursor.style.opacity = '0';
+                document.body.classList.remove('skull-cursor-on');
+            }
+
+            // Движение мыши
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                // При первом движении — мгновенно перемещаем череп к мыши
+                if (!hasMoved) {
+                    hasMoved = true;
+                    cursorX = mouseX;
+                    cursorY = mouseY;
+                    cursor.style.transform = 'translate3d(' + cursorX + 'px, ' + cursorY + 'px, 0) translate(-50%, -50%)';
+                }
+            });
+
+            // Плавное следование через requestAnimationFrame
+            function loop() {
+                if (!isActive) return;
+                cursorX += (mouseX - cursorX) * 0.25;
+                cursorY += (mouseY - cursorY) * 0.25;
+                cursor.style.transform = 'translate3d(' + cursorX + 'px, ' + cursorY + 'px, 0) translate(-50%, -50%)';
+                requestAnimationFrame(loop);
+            }
+
+            // Увеличение на ссылках и кнопках
+            document.addEventListener('mouseover', function(e) {
+                if (!isActive) return;
+                if (e.target.closest('a, button, input, textarea, select, .bike-card, .related-card')) {
+                    cursor.classList.add('hover');
+                }
+            });
+            document.addEventListener('mouseout', function(e) {
+                if (!isActive) return;
+                if (e.target.closest('a, button, input, textarea, select, .bike-card, .related-card')) {
+                    cursor.classList.remove('hover');
+                }
+            });
+
+            // Тумблер
+            toggle.addEventListener('change', function() {
+                if (toggle.checked) {
+                    localStorage.setItem('skull_cursor', 'on');
+                    activate();
+                } else {
+                    localStorage.setItem('skull_cursor', 'off');
+                    deactivate();
+                }
+            });
+        })();
+    </script>
+
     <script>
         // === COOKIE-БАННЕР ===
         (function() {
@@ -208,19 +411,16 @@
 
             window.addEventListener('scroll', updateProgress, { passive: true });
             window.addEventListener('resize', updateProgress);
-            updateProgress();  // при загрузке страницы
+            updateProgress();
         })();
     </script>
 
     <script>
         // === SCROLL REVEAL ===
         (function() {
-            // Уважаем настройки пользователя
             var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReduced) return;
 
-            // Находим все элементы, которые надо анимировать
-            // Селекторы: карточки, секции, статьи, но не трогаем header/footer/nav
             var selectors = [
                 '.bike-card',
                 '.bike-grid > div',
@@ -233,7 +433,6 @@
             var elements = [];
             selectors.forEach(function(sel) {
                 document.querySelectorAll(sel).forEach(function(el) {
-                    // Не добавляем, если уже есть класс или если элемент в шапке/подвале
                     if (el.classList.contains('reveal')) return;
                     if (el.closest('header') || el.closest('footer') || el.closest('nav')) return;
                     el.classList.add('reveal');
@@ -243,12 +442,11 @@
 
             if (elements.length === 0) return;
 
-            // IntersectionObserver: следим за элементами
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('reveal-visible');
-                        observer.unobserve(entry.target);  // анимируем один раз
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
@@ -265,7 +463,6 @@
     <script>
         // === SPOTLIGHT ===
         (function() {
-            // Находим все элементы с классом .bike-card или .spotlight
             var cards = document.querySelectorAll('.bike-card, .spotlight');
             if (cards.length === 0) return;
 
@@ -293,7 +490,6 @@
         (function() {
             var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReduced) {
-                // Если анимации отключены — сразу показываем финальные значения
                 document.querySelectorAll('[data-count]').forEach(function(el) {
                     var target = parseInt(el.dataset.count, 10);
                     var suffix = el.dataset.suffix || '';
@@ -319,7 +515,6 @@
 
                     function step(now) {
                         var progress = Math.min(1, (now - start) / duration);
-                        // Ease-out cubic
                         var eased = 1 - Math.pow(1 - progress, 3);
                         var current = Math.round(target * eased);
                         el.textContent = current.toLocaleString('ru-RU') + suffix;
