@@ -50,6 +50,95 @@
             letter-spacing: 1px;
         }
     }
+
+    /* === УЛУЧШЕННЫЕ ФИЛЬТРЫ === */
+    .filter-btn {
+        padding: 10px 22px;
+        border: 1px solid #b22222;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-family: 'Impact', sans-serif;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .filter-btn:hover {
+        background: #b22222;
+        color: #fff;
+        box-shadow: 0 0 20px rgba(178, 34, 34, 0.6);
+        transform: scale(1.05);
+        border-color: #ff3333;
+    }
+
+    .filter-btn:active {
+        transform: scale(0.98);
+    }
+
+    .filter-btn.active {
+        background: #b22222;
+        color: #fff;
+        border-color: #c0b090;
+        box-shadow: 0 0 15px rgba(178, 34, 34, 0.4);
+    }
+
+    .filter-btn.active:hover {
+        box-shadow: 0 0 25px rgba(178, 34, 34, 0.7);
+    }
+
+    /* === УЛУЧШЕННАЯ ПАГИНАЦИЯ === */
+    .pagination-link,
+    .pagination-current {
+        display: inline-block;
+        padding: 9px 16px;
+        border-radius: 4px;
+        font-family: 'Impact', sans-serif;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .pagination-link {
+        border: 1px solid #b22222;
+        color: #b22222;
+        background: transparent;
+    }
+
+    .pagination-link:hover {
+        background: #b22222;
+        color: #fff;
+        box-shadow: 0 0 20px rgba(178, 34, 34, 0.6);
+        transform: scale(1.05);
+        border-color: #ff3333;
+    }
+
+    .pagination-link:active {
+        transform: scale(0.95);
+    }
+
+    .pagination-current {
+        background: #b22222;
+        color: #fff;
+        border: 1px solid #c0b090;
+        box-shadow: 0 0 15px rgba(178, 34, 34, 0.5);
+        cursor: default;
+    }
+
+    @media (max-width: 480px) {
+        .filter-btn {
+            padding: 8px 14px;
+            font-size: 0.8rem;
+        }
+        .pagination-link,
+        .pagination-current {
+            padding: 8px 12px;
+            font-size: 0.85rem;
+        }
+    }
 </style>
 
 <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
@@ -86,91 +175,11 @@
 
     <!-- ФИЛЬТРЫ ПО ЭПОХАМ -->
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px;">
-        <a href="?era=all" style="
-            padding: 8px 20px;
-            border: 1px solid #b22222;
-            border-radius: 4px;
-            text-decoration: none;
-            color: {% if current_era == 'all' %}#fff{% else %}#b22222{% endif %};
-            background: {% if current_era == 'all' %}#b22222{% else %}transparent{% endif %};
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 1px;
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff';"
-        onmouseout="this.style.background='{% if current_era == 'all' %}#b22222{% else %}transparent{% endif %}'; this.style.color='{% if current_era == 'all' %}#fff{% else %}#b22222{% endif %}';"
-        >
-            ВСЕ МОДЕЛИ
-        </a>
-        <a href="?era=fx" style="
-            padding: 8px 20px;
-            border: 1px solid #b22222;
-            border-radius: 4px;
-            text-decoration: none;
-            color: {% if current_era == 'fx' %}#fff{% else %}#b22222{% endif %};
-            background: {% if current_era == 'fx' %}#b22222{% else %}transparent{% endif %};
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 1px;
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff';"
-        onmouseout="this.style.background='{% if current_era == 'fx' %}#b22222{% else %}transparent{% endif %}'; this.style.color='{% if current_era == 'fx' %}#fff{% else %}#b22222{% endif %}';"
-        >
-            FX / FXR
-        </a>
-        <a href="?era=evolution" style="
-            padding: 8px 20px;
-            border: 1px solid #b22222;
-            border-radius: 4px;
-            text-decoration: none;
-            color: {% if current_era == 'evolution' %}#fff{% else %}#b22222{% endif %};
-            background: {% if current_era == 'evolution' %}#b22222{% else %}transparent{% endif %};
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 1px;
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff';"
-        onmouseout="this.style.background='{% if current_era == 'evolution' %}#b22222{% else %}transparent{% endif %}'; this.style.color='{% if current_era == 'evolution' %}#fff{% else %}#b22222{% endif %}';"
-        >
-            EVOLUTION (1991–1998)
-        </a>
-        <a href="?era=twincam88" style="
-            padding: 8px 20px;
-            border: 1px solid #b22222;
-            border-radius: 4px;
-            text-decoration: none;
-            color: {% if current_era == 'twincam88' %}#fff{% else %}#b22222{% endif %};
-            background: {% if current_era == 'twincam88' %}#b22222{% else %}transparent{% endif %};
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 1px;
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff';"
-        onmouseout="this.style.background='{% if current_era == 'twincam88' %}#b22222{% else %}transparent{% endif %}'; this.style.color='{% if current_era == 'twincam88' %}#fff{% else %}#b22222{% endif %}';"
-        >
-            TWIN CAM 88 (1999–2006)
-        </a>
-        <a href="?era=twincam96" style="
-            padding: 8px 20px;
-            border: 1px solid #b22222;
-            border-radius: 4px;
-            text-decoration: none;
-            color: {% if current_era == 'twincam96' %}#fff{% else %}#b22222{% endif %};
-            background: {% if current_era == 'twincam96' %}#b22222{% else %}transparent{% endif %};
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 1px;
-        "
-        onmouseover="this.style.background='#b22222'; this.style.color='#fff';"
-        onmouseout="this.style.background='{% if current_era == 'twincam96' %}#b22222{% else %}transparent{% endif %}'; this.style.color='{% if current_era == 'twincam96' %}#fff{% else %}#b22222{% endif %}';"
-        >
-            TWIN CAM 96/103/110 (2007–2017)
-        </a>
+        <a href="?era=all" class="filter-btn {% if current_era == 'all' %}active{% endif %}">ВСЕ МОДЕЛИ</a>
+        <a href="?era=fx" class="filter-btn {% if current_era == 'fx' %}active{% endif %}">FX / FXR</a>
+        <a href="?era=evolution" class="filter-btn {% if current_era == 'evolution' %}active{% endif %}">EVOLUTION (1991–1998)</a>
+        <a href="?era=twincam88" class="filter-btn {% if current_era == 'twincam88' %}active{% endif %}">TWIN CAM 88 (1999–2006)</a>
+        <a href="?era=twincam96" class="filter-btn {% if current_era == 'twincam96' %}active{% endif %}">TWIN CAM 96/103/110 (2007–2017)</a>
     </div>
 
     <!-- СЕТКА КАРТОЧЕК -->
@@ -241,19 +250,19 @@
     {% if page_obj.has_other_pages %}
     <div style="display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap;">
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}{% if current_era != 'all' %}&era={{ current_era }}{% endif %}" style="color: #b22222; text-decoration: none; padding: 8px 16px; border: 1px solid #b22222; border-radius: 4px; transition: 0.3s;">←</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if current_era != 'all' %}&era={{ current_era }}{% endif %}" class="pagination-link">←</a>
         {% endif %}
 
         {% for num in page_obj.paginator.page_range %}
             {% if page_obj.number == num %}
-                <span style="background: #b22222; color: #fff; padding: 8px 16px; border-radius: 4px; border: 1px solid #b22222;">{{ num }}</span>
+                <span class="pagination-current">{{ num }}</span>
             {% else %}
-                <a href="?page={{ num }}{% if current_era != 'all' %}&era={{ current_era }}{% endif %}" style="color: #b22222; text-decoration: none; padding: 8px 16px; border: 1px solid #b22222; border-radius: 4px; transition: 0.3s;" onmouseover="this.style.background='#b22222'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='#b22222';">{{ num }}</a>
+                <a href="?page={{ num }}{% if current_era != 'all' %}&era={{ current_era }}{% endif %}" class="pagination-link">{{ num }}</a>
             {% endif %}
         {% endfor %}
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}{% if current_era != 'all' %}&era={{ current_era }}{% endif %}" style="color: #b22222; text-decoration: none; padding: 8px 16px; border: 1px solid #b22222; border-radius: 4px; transition: 0.3s;">→</a>
+            <a href="?page={{ page_obj.next_page_number }}{% if current_era != 'all' %}&era={{ current_era }}{% endif %}" class="pagination-link">→</a>
         {% endif %}
     </div>
     {% endif %}
