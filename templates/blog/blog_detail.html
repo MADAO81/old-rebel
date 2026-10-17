@@ -7,28 +7,21 @@
 
 <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
 
-    <!-- ХЛЕБНЫЕ КРОШКИ -->
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
-    <!-- ЗАГОЛОВОК -->
     <section>
-        <h1 style="color: #c0b090; font-family: 'Georgia', serif; font-size: 2.2rem; border-bottom: 1px solid #2a2c2e; padding-bottom: 10px;">
-            {{ post.title }}
-        </h1>
-
-        <div style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">
+        <h1 class="blog-detail-title">{{ post.title }}</h1>
+        <div class="blog-detail-meta">
             {{ post.created_at|date:"d.m.Y" }} • {{ post.get_category_display }}
         </div>
     </section>
 
-    <!-- ТЕКСТ ПОСТА -->
-    <section style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+    <section class="blog-detail-content">
         {{ post.content|linebreaks }}
     </section>
 
-    <!-- YOUTUBE -->
     {% if post.youtube_url %}
-    <div style="margin: 40px 0; text-align: center;">
+    <div class="blog-youtube-btn-wrap">
         <a href="{{ post.youtube_url }}" target="_blank" class="btn-fill" style="
             display: inline-block;
             padding: 12px 30px;
@@ -44,8 +37,7 @@
     </div>
     {% endif %}
 
-    <!-- КНОПКА НАЗАД -->
-    <div style="text-align: center; margin-top: 40px;">
+    <div class="blog-detail-back">
         <a href="{% url 'blog_index' %}" class="btn-fill" style="
             display: inline-block;
             padding: 12px 40px;

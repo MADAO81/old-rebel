@@ -11,39 +11,26 @@
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
     <!-- ЗАГОЛОВОК -->
-    <div style="text-align: center; margin-bottom: 40px;">
-        <h1 style="
-            color: #b22222;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 6px;
-            font-size: 3rem;
-            margin: 10px 0 20px;
-            text-shadow: 0 0 25px rgba(178, 34, 34, 0.5);
-        ">
-            {% block hero_name %}ИМЯ ГЕРОЯ{% endblock %}
-        </h1>
-        <p style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px;">
-            {% block hero_bike %}МОДЕЛЬ БАЙКА{% endblock %}
-        </p>
-        <p style="color: #888; font-style: italic; font-size: 1.05rem; margin-bottom: 30px;">
-            {% block hero_lead %}Анонс статьи.{% endblock %}
-        </p>
+    <div class="soa-hero-page-header">
+        <h1 class="soa-hero-name">{% block hero_name %}ИМЯ ГЕРОЯ{% endblock %}</h1>
+        <p class="soa-hero-bike-model">{% block hero_bike %}МОДЕЛЬ БАЙКА{% endblock %}</p>
+        <p class="soa-hero-lead">{% block hero_lead %}Анонс статьи.{% endblock %}</p>
     </div>
 
     <!-- ОСНОВНОЙ КОНТЕНТ -->
-    {% block hero_content %}
-    <p style="color: #aaa; text-align: center; font-style: italic;">Текст статьи скоро появится.</p>
-    {% endblock %}
-
-    <!-- ЧИТАЙТЕ ТАКЖЕ -->
-    {% include 'includes/related_articles.html' with related_articles=related_articles %}
+    <div class="soa-hero-content-wrapper">
+        {% block hero_content %}
+        <p style="color: #aaa; text-align: center; font-style: italic;">Текст статьи скоро появится.</p>
+        {% endblock %}
+    </div>
 
     <!-- КНОПКА НАЗАД -->
-    <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #333;">
+    <div class="soa-hero-back-wrap">
         <a href="/soa/" class="btn-fill" style="
             display: inline-block;
             padding: 12px 30px;
             border: 2px solid #b22222;
+            border-radius: 4px;
             text-decoration: none;
             font-family: 'Impact', sans-serif;
             letter-spacing: 3px;
