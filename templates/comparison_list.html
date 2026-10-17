@@ -9,35 +9,17 @@
 
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
-    <h2 style="color: #b22222; text-align: center; font-family: 'Impact', sans-serif; letter-spacing: 4px; font-size: 2.5rem;">
-        СРАВНИТЕЛЬНЫЕ МАТЕРИАЛЫ
-    </h2>
-    <p style="text-align: center; color: #888; font-style: italic; margin-bottom: 30px;">
-        Здесь собраны сравнения моделей, двигателей и систем питания
-    </p>
+    <div class="comparison-page-header">
+        <h2 class="comparison-page-title">СРАВНИТЕЛЬНЫЕ МАТЕРИАЛЫ</h2>
+        <p class="comparison-page-subtitle">Здесь собраны сравнения моделей, двигателей и систем питания</p>
+    </div>
 
     <div class="related-grid">
         {% for article in articles %}
-        <div class="related-card spotlight" style="border-top: 4px solid #b22222;">
-            <div class="related-card-title" style="font-size: 1.2rem; letter-spacing: 1px; font-family: 'Georgia', serif; text-transform: none;">
-                {{ article.title }}
-            </div>
-            <div class="related-card-subtitle" style="margin-bottom: 15px;">
-                {{ article.preview|truncatechars:80 }}
-            </div>
-            <a href="{% url 'comparison_detail' article.slug %}" style="
-                color: #b22222;
-                text-decoration: none;
-                font-family: 'Impact', sans-serif;
-                letter-spacing: 1px;
-                font-size: 0.9rem;
-                transition: color 0.3s ease;
-            "
-            onmouseover="this.style.color='#ff6666';"
-            onmouseout="this.style.color='#b22222';"
-            >
-                ЧИТАТЬ →
-            </a>
+        <div class="comparison-card">
+            <div class="comparison-card-title">{{ article.title }}</div>
+            <div class="comparison-card-preview">{{ article.preview|truncatechars:80 }}</div>
+            <a href="{% url 'comparison_detail' article.slug %}" class="comparison-card-link">ЧИТАТЬ →</a>
         </div>
         {% empty %}
         <p style="color: #888; text-align: center;">Пока нет статей. Но они обязательно появятся.</p>

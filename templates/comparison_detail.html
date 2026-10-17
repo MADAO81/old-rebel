@@ -11,13 +11,11 @@
 
     <!-- ЗАГОЛОВОК СТАТЬИ -->
     <section>
-        <h1 style="color: #c0b090; font-family: 'Georgia', serif; font-size: 2.2rem; border-bottom: 1px solid #2a2c2e; padding-bottom: 10px;">
-            {{ article.title }}
-        </h1>
+        <h1 class="comparison-detail-title">{{ article.title }}</h1>
     </section>
 
     <!-- ТЕКСТ СТАТЬИ -->
-    <section style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+    <section class="comparison-detail-content">
         {{ article.content|linebreaks }}
     </section>
 
@@ -25,7 +23,7 @@
     {% include 'includes/related_articles.html' with related_articles=related_articles %}
 
     <!-- КНОПКА НАЗАД -->
-    <div style="text-align: center; margin-top: 40px;">
+    <div class="comparison-detail-back">
         <a href="{% url 'comparison_list' %}" class="btn-fill" style="
             display: inline-block;
             padding: 12px 40px;

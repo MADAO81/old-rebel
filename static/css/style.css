@@ -1142,3 +1142,282 @@ footer .skull-icon {
     text-align: center;
     margin-top: 40px;
 }
+/* === СТРАНИЦА СРАВНЕНИЙ (comparison_list.html) === */
+.comparison-page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.comparison-page-title {
+    color: var(--color-red);
+    font-family: var(--font-impact);
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.comparison-page-subtitle {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+/* Карточка сравнения — на базе related-card, но с верхней полосой */
+.comparison-card {
+    display: block;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-top: 4px solid var(--color-red);
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.comparison-card:hover {
+    border-color: var(--color-red-bright);
+    border-top-color: var(--color-red-bright);
+    box-shadow: 0 0 25px rgba(178, 34, 34, 0.4);
+    transform: translateY(-3px);
+}
+
+.comparison-card-title {
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-family: var(--font-serif);
+}
+
+.comparison-card-preview {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin: 5px 0 10px 0;
+    line-height: 1.4;
+}
+
+.comparison-card-link {
+    color: var(--color-red);
+    text-decoration: none;
+    font-family: var(--font-impact);
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: color var(--transition-base);
+}
+
+.comparison-card:hover .comparison-card-link {
+    color: var(--color-red-hover);
+}
+/* === СТРАНИЦА СРАВНЕНИЯ (comparison_detail.html) === */
+.comparison-detail-title {
+    color: var(--color-gold);
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.comparison-detail-content {
+    color: var(--color-text-dim);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.comparison-detail-back {
+    text-align: center;
+    margin-top: 40px;
+}
+/* === СТРАНИЦА "О ПРОЕКТЕ" (about.html) === */
+.about-page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-page-title {
+    color: var(--color-red);
+    font-family: var(--font-impact);
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+}
+
+.about-section {
+    margin-top: 30px;
+}
+
+.about-section-title {
+    color: var(--color-text);
+    font-family: var(--font-impact);
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+    margin-top: 30px;
+    border-bottom: 2px solid var(--color-red);
+    padding-bottom: 8px;
+    text-shadow: none;
+}
+
+.about-content {
+    color: var(--color-text-dim);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.about-content p {
+    margin: 0;
+}
+
+.about-content strong {
+    color: var(--color-text);
+}
+
+.about-content em {
+    font-style: italic;
+}
+
+.about-highlight {
+    color: var(--color-gold);
+    font-style: italic;
+}
+
+.about-signature {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+/* === СТРАНИЦА "ИСТОРИЯ" (history.html) === */
+.history-page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.history-page-title {
+    color: var(--color-red);
+    font-family: var(--font-impact);
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.history-page-subtitle {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.history-timeline-section {
+    margin-top: 30px;
+    border-left: 3px solid var(--color-red);
+    padding-left: 20px;
+}
+
+.history-timeline-title {
+    color: var(--color-gold);
+    font-family: var(--font-impact);
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.history-timeline-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-top: 0;
+    font-style: italic;
+}
+
+.history-timeline-content {
+    color: var(--color-text-dim);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.history-timeline-content p {
+    margin: 0;
+}
+
+.history-timeline-content strong {
+    color: var(--color-text);
+}
+
+.history-timeline-content em {
+    font-style: italic;
+}
+
+.history-final-quote {
+    margin-top: 40px;
+    padding: 20px 25px;
+    background: var(--color-bg-card);
+    border-left: 6px solid var(--color-red);
+    border-radius: 8px;
+}
+
+.history-final-quote p {
+    color: var(--color-gold);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* === СТРАНИЦА "ИСТОЧНИКИ" (sources.html) === */
+.sources-page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sources-page-title {
+    color: var(--color-red);
+    font-family: var(--font-impact);
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.sources-page-subtitle {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.sources-section {
+    margin-top: 30px;
+    border-left: 3px solid var(--color-red);
+    padding-left: 20px;
+}
+
+.sources-section-title {
+    color: var(--color-gold);
+    font-family: var(--font-impact);
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.source-item {
+    margin-bottom: 15px;
+}
+
+.source-item-title {
+    color: var(--color-text);
+    font-weight: bold;
+    margin: 0;
+}
+
+.source-item-desc {
+    color: var(--color-text-dim);
+    line-height: 1.6;
+    margin: 5px 0 0 20px;
+}
+
+.sources-footer-note {
+    margin-top: 30px;
+    border-left: 3px solid var(--color-red);
+    padding-left: 20px;
+}
+
+.sources-footer-note p {
+    color: var(--color-text-muted);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
