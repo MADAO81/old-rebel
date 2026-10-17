@@ -5,101 +5,6 @@
 
 {% block content %}
 
-<!-- СТИЛЬ ДЛЯ MARQUEE И COUNT-UP -->
-<style>
-    /* === MARQUEE === */
-    .rebel-marquee {
-        width: 100%;
-        overflow: hidden;
-        background: #0d0e0f;
-        border-top: 1px solid #b22222;
-        border-bottom: 1px solid #b22222;
-        padding: 14px 0;
-        margin: 30px 0;
-        position: relative;
-        -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-        mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    }
-
-    .rebel-marquee-track {
-        display: flex;
-        width: max-content;
-        animation: rebelMarquee 45s linear infinite;
-    }
-
-    .rebel-marquee-track span {
-        font-family: 'Impact', 'Arial Black', sans-serif;
-        font-size: 1.1rem;
-        letter-spacing: 4px;
-        color: #b22222;
-        text-shadow: 0 0 12px rgba(178, 34, 34, 0.5);
-        white-space: nowrap;
-        padding: 0 20px;
-        user-select: none;
-    }
-
-    @keyframes rebelMarquee {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .rebel-marquee-track { animation: none; }
-    }
-
-    @media (max-width: 480px) {
-        .rebel-marquee-track span {
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            padding: 0 12px;
-        }
-    }
-
-    /* === COUNT-UP === */
-    .rebel-countup {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin: 40px 0;
-        padding: 30px 20px;
-        background: #14181c;
-        border: 1px solid #2a2c2e;
-        border-radius: 8px;
-    }
-
-    .rebel-countup-item {
-        text-align: center;
-    }
-
-    .rebel-countup-num {
-        font-family: 'Impact', 'Arial Black', sans-serif;
-        font-size: 3rem;
-        color: #b22222;
-        letter-spacing: 3px;
-        text-shadow: 0 0 20px rgba(178, 34, 34, 0.5);
-        line-height: 1;
-        margin-bottom: 10px;
-    }
-
-    .rebel-countup-label {
-        color: #888;
-        font-size: 0.85rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-family: 'Georgia', serif;
-    }
-
-    @media (max-width: 480px) {
-        .rebel-countup-num {
-            font-size: 2.2rem;
-        }
-        .rebel-countup-label {
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-        }
-    }
-</style>
-
 <div style="max-width: 900px; margin: 0 auto; padding: 20px;">
 
     <!-- ХЛЕБНЫЕ КРОШКИ -->
@@ -107,26 +12,7 @@
 
     <!-- ВИНТАЖНЫЙ ЗАГОЛОВОК -->
     <div style="text-align: center; margin: 10px 0 15px;">
-        <h2 style="
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 6px;
-            color: #b22222;
-            text-shadow:
-                0 0 20px rgba(178, 34, 34, 0.2),
-                2px 2px 0 #0d0e0f,
-                3px 3px 0 rgba(0,0,0,0.5);
-            opacity: 0.9;
-            margin: 0 auto;
-            padding: 8px 20px;
-            background: #121212;
-            border: 1px solid #b22222;
-            border-radius: 4px;
-            display: block;
-            width: fit-content;
-            max-width: 90%;
-            position: relative;
-        ">
+        <h2 class="welcome-title">
             ДОБРО ПОЖАЛОВАТЬ В МИР DYNA
             <div style="
                 position: absolute;
@@ -148,23 +34,8 @@
     </div>
 
     <!-- ЦИТАТА -->
-    <div style="
-        background: #1a1c1e;
-        padding: 25px 30px;
-        border-left: 6px solid #b22222;
-        margin: 20px 0 30px;
-        box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
-    ">
-        <p style="
-            color: #d4c9b8;
-            font-size: 1.3rem;
-            line-height: 1.7;
-            font-style: italic;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            text-shadow: 0 0 20px rgba(180, 150, 120, 0.1);
-            letter-spacing: 0.3px;
-            margin: 0;
-        ">
+    <div class="quote-block">
+        <p>
             «Семейство Dyna — это не просто мотоциклы. Это история свободы, бунта и железа,
             которая началась с эскиза на бумажном пакете и закончилась легендой. Здесь нет маркетинга.
             Есть только факты, эмоции и уважение к культуре.»
@@ -217,56 +88,26 @@
         </div>
     </div>
 
-    <!-- БЛОК С ФОТО (кликабельные) -->
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0;">
+    <!-- БЛОК С ФОТО -->
+    <div class="home-photo-grid">
 
-        <!-- Фото 1: Dyna Sturgis (FXDB) 1991 -->
-        <a href="{% url 'bike_detail' 'dyna-sturgis-fxdb' %}" style="text-decoration: none; width: 100%; max-width: 400px;">
-            <div class="spotlight" style="
-                background: #1a1c1e;
-                width: 100%;
-                border-radius: 8px;
-                border: 2px solid #b22222;
-                overflow: hidden;
-                box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
-                display: flex;
-                flex-direction: column;
-                transition: all 0.3s ease;
-                cursor: pointer;
-            "
-            onmouseover="this.style.borderColor='#ff6666'; this.style.boxShadow='0 0 30px rgba(178,34,34,0.5)';"
-            onmouseout="this.style.borderColor='#b22222'; this.style.boxShadow='inset 0 0 30px rgba(0,0,0,0.6)';"
-            >
-                <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0d0e0f;">
-                    <img loading="lazy" src="{% static 'img/sturgis.jpg' %}" alt="Dyna Sturgis 1991" style="width: 100%; height: 100%; object-fit: cover;">
+        <a href="{% url 'bike_detail' 'dyna-sturgis-fxdb' %}" class="home-photo-link">
+            <div class="home-photo-card">
+                <div class="home-photo-img">
+                    <img loading="lazy" src="{% static 'img/sturgis.jpg' %}" alt="Dyna Sturgis 1991">
                 </div>
-                <div style="padding: 10px; text-align: center; color: #888; font-family: 'Georgia', serif; font-style: italic; font-size: 0.8rem; letter-spacing: 1px; border-top: 1px solid #2a2c2e; flex-shrink: 0;">
+                <div class="home-photo-caption">
                     📸 FXDB Sturgis (1991) — первая Dyna
                 </div>
             </div>
         </a>
 
-        <!-- Фото 2: Последняя Dyna — FXDLS Low Rider S (2017) -->
-        <a href="{% url 'bike_detail' 'dyna-low-rider-s-fxdls' %}" style="text-decoration: none; width: 100%; max-width: 400px;">
-            <div class="spotlight" style="
-                background: #1a1c1e;
-                width: 100%;
-                border-radius: 8px;
-                border: 2px solid #b22222;
-                overflow: hidden;
-                box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
-                display: flex;
-                flex-direction: column;
-                transition: all 0.3s ease;
-                cursor: pointer;
-            "
-            onmouseover="this.style.borderColor='#ff6666'; this.style.boxShadow='0 0 30px rgba(178,34,34,0.5)';"
-            onmouseout="this.style.borderColor='#b22222'; this.style.boxShadow='inset 0 0 30px rgba(0,0,0,0.6)';"
-            >
-                <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0d0e0f;">
-                    <img loading="lazy" src="{% static 'img/last-dyna.jpg' %}" alt="Последняя Dyna 2017" style="width: 100%; height: 100%; object-fit: cover;">
+        <a href="{% url 'bike_detail' 'dyna-low-rider-s-fxdls' %}" class="home-photo-link">
+            <div class="home-photo-card">
+                <div class="home-photo-img">
+                    <img loading="lazy" src="{% static 'img/last-dyna.jpg' %}" alt="Последняя Dyna 2017">
                 </div>
-                <div style="padding: 10px; text-align: center; color: #888; font-family: 'Georgia', serif; font-style: italic; font-size: 0.8rem; letter-spacing: 1px; border-top: 1px solid #2a2c2e; flex-shrink: 0;">
+                <div class="home-photo-caption">
                     📸 Последняя Dyna — FXDLS Low Rider S (2017)
                 </div>
             </div>
@@ -275,147 +116,102 @@
     </div>
 
     <!-- ИСТОРИЯ -->
-    <section style="margin-top: 30px; background: #14181c; padding: 25px; border-radius: 8px; border: 1px solid #2a2c2e;">
-        <h3 style="
-            color: #c0b090;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            letter-spacing: 3px;
-            font-size: 1.6rem;
-            border-bottom: 2px solid #b22222;
-            padding-bottom: 10px;
-            margin-top: 0;
-        ">ИСТОРИЯ</h3>
-        <div style="color: #aaa; line-height: 1.8; font-size: 1rem;">
+    <section class="history-section">
+        <h3>ИСТОРИЯ</h3>
+        <div class="history-content">
 
-            <p style="margin: 0 0 0 0;">
+            <p>
                 В мире полно мотоциклов. Японцы, немцы, итальянцы — каждый со своим характером.
                 Но есть только один бренд, который за 120 лет так и не научился делать идеальные
-                мотоциклы, но при этом умудрился стать культом. <strong style="color: #d4c9b8;">Harley-Davidson.</strong>
+                мотоциклы, но при этом умудрился стать культом. <strong>Harley-Davidson.</strong>
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 И среди всего этого железа, которое они выпустили, есть одна линейка, которая цепляет
-                по-особенному. <strong style="color: #d4c9b8;">Dyna.</strong> Не самая дорогая, не самая быстрая,
+                по-особенному. <strong>Dyna.</strong> Не самая дорогая, не самая быстрая,
                 не самая технологичная. Но самая живая.
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 У Dyna есть предыстория. Три важных этапа, без которых её бы не было.
             </p>
 
-            <h4 style="
-                color: #c0b090;
-                font-family: 'Georgia', 'Times New Roman', serif;
-                font-weight: normal;
-                letter-spacing: 1.5px;
-                font-size: 1.4rem;
-                margin: 20px 0 5px;
-                border-bottom: 1px dotted #2a2c2e;
-                padding-bottom: 5px;
-            ">1971 — рождение Super Glide (FX)</h4>
-            <p style="margin: 0 0 0 0;">
+            <h4>1971 — рождение Super Glide (FX)</h4>
+            <p>
                 Конец 1960-х — время кастомов. «Easy Rider» вышел на экраны, и всем захотелось
                 что-то своё, непохожее на стандартные серийные байки.
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 Вилли G. Дэвидсон — потомок основателя H-D и главный дизайнер — решил, что Harley
                 должен ответить на этот тренд. Он взял раму и двигатель Shovelhead от большой
                 туристической модели FL, а переднюю вилку и колесо — от лёгкого Sportster XL.
                 Получился гибрид. Название FX расшифровывалось как <em>Factory Experimental</em>
                 — заводской эксперимент.
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 В 1971 году Super Glide выкатили на дороги. Публика встретила его прохладно — продали
                 меньше пяти тысяч штук, тогда как Sportster разошёлся тиражом в десять тысяч. Но это
                 был первый кастом с завода, и он задал направление. Без Super Glide не было бы ни
                 Low Rider, ни Wide Glide, ни того, что пришло позже.
             </p>
 
-            <h4 style="
-                color: #c0b090;
-                font-family: 'Georgia', 'Times New Roman', serif;
-                font-weight: normal;
-                letter-spacing: 1.5px;
-                font-size: 1.4rem;
-                margin: 20px 0 5px;
-                border-bottom: 1px dotted #2a2c2e;
-                padding-bottom: 5px;
-            ">1982 — рождение FXR</h4>
-            <p style="margin: 0 0 0 0;">
+            <h4>1982 — рождение FXR</h4>
+            <p>
                 Через десять лет после Super Glide, Harley сделал ещё один шаг вперёд. В 1982 году
-                появилась модель <strong style="color: #d4c9b8;">FXR</strong>. Её главная фишка — двигатель
+                появилась модель <strong>FXR</strong>. Её главная фишка — двигатель
                 на резиновых подушках. Вибрация гасилась, байк стал мягче, комфортнее. Это был
                 серьёзный прорыв, и многие до сих пор считают FXR лучшим харлеем по управляемости.
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 Важный момент: FXR — не предшественник Dyna в прямом смысле. Это была отдельная
                 линейка, которая продавалась параллельно с Dyna долгие годы. Но идея резиновых
                 подушек двигателя оказалась слишком хорошей, чтобы от неё отказываться. Именно она
                 перекочевала в будущее семейство и стала его визитной карточкой.
             </p>
 
-            <!-- 1991 — Рождение Dyna -->
-            <h4 style="
-                color: #c0b090;
-                font-family: 'Georgia', 'Times New Roman', serif;
-                font-weight: normal;
-                letter-spacing: 1.5px;
-                font-size: 1.4rem;
-                margin: 20px 0 5px;
-                border-bottom: 1px dotted #2a2c2e;
-                padding-bottom: 5px;
-            ">1991 — рождение Dyna</h4>
-            <p style="margin: 0 0 0 0;">
+            <h4>1991 — рождение Dyna</h4>
+            <p>
                 А теперь — главное. В 1991 году Harley-Davidson выкатил на дороги новый модельный ряд.
-                <strong style="color: #d4c9b8;">Dyna.</strong>
+                <strong>Dyna.</strong>
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 Новое шасси сочеталось с резиновыми подушками двигателя, но при этом было жёстче, чем у FXR.
                 Компромисс, который устроил всех: комфорт без потери управляемости.
             </p>
-            <p style="margin: 0 0 0 0;">
-                Первой ласточкой стал <strong style="color: #d4c9b8;">Dyna Sturgis (FXDB)</strong> — модель, названная
+            <p>
+                Первой ласточкой стал <strong>Dyna Sturgis (FXDB)</strong> — модель, названная
                 в честь легендарного мотопробега в Южной Дакоте.
             </p>
-            <p style="margin: 0 0 0 0;">
-                У этой модели был прародитель — <strong style="color: #d4c9b8;">FXB Sturgis</strong>, выпущенный
+            <p>
+                У этой модели был прародитель — <strong>FXB Sturgis</strong>, выпущенный
                 в 1980 году. С него, по сути, и началась история. Говорят, что Вилли G. Дэвидсон набросал эскиз
                 будущего FXB на бумажном пакете по дороге домой с того самого ралли в Стерджисе. Чёрный матовый,
                 с ременным приводом — он тогда выглядел как пришелец из будущего.
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 Тот самый пакет с набросками и заметками до сих пор хранится в архивах компании.
                 Его периодически выставляют в музее Harley-Davidson как часть личной коллекции Вилли G.
                 Музейные кураторы, кстати, любят подчёркивать, что этот «кусок мусора» с каракулями —
                 лучшее доказательство его одержимости дизайном. Он привык рисовать и записывать идеи
                 на чём попало, и этот пакет — не исключение, а правило.
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 В 1991 году выпустили чуть больше 1500 Dyna Sturgis. Начало было скромным, но за ним последовали
                 26 лет, которые изменили представление о круизерах.
             </p>
 
-            <h4 style="
-                color: #c0b090;
-                font-family: 'Georgia', 'Times New Roman', serif;
-                font-weight: normal;
-                letter-spacing: 1.5px;
-                font-size: 1.4rem;
-                margin: 20px 0 5px;
-                border-bottom: 1px dotted #2a2c2e;
-                padding-bottom: 5px;
-            ">2017 — завершение эры</h4>
-            <p style="margin: 0 0 0 0;">
+            <h4>2017 — завершение эры</h4>
+            <p>
                 Мотоциклы Dyna расположились где-то между спортивными круизерами и туристическими
                 байками. Они не были ни тем, ни другим — они были чем-то своим. И даже несмотря
                 на то, что в 2017 году производство Dyna свернули, а некоторые модели перенесли
                 в линейку Softail, фанаты до сих пор помнят ту самую «династию».
             </p>
-            <p style="margin: 0 0 0 0;">
+            <p>
                 Почему закрыли? Одна из версий — новые двигатели Milwaukee-Eight, которые появились
                 в 2016 году, оказались слишком большими и мощными для старой рамы. Нужна была
                 другая конструкция. И Dyna ушла. А вместе с ней — целая эпоха.
             </p>
 
-            <p style="color: #c0b090; font-style: italic; font-size: 1.05rem; margin: 25px 0 0 0;">
+            <p class="history-final">
                 Этот сайт я посвящаю мотоциклам семейства Dyna и всему, что с ними связано.
                 Тем, кто помнит. Тем, кто ездит. Тем, кто ищет свой побег из ржавой клетки.
             </p>
@@ -424,7 +220,7 @@
     </section>
 
     <!-- КНОПКА -->
-    <div style="text-align: center; margin-top: 30px;">
+    <div class="home-cta">
         <a href="{% url 'models' %}" class="btn-fill" style="
             display: inline-block;
             padding: 12px 40px;

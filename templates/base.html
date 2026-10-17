@@ -18,14 +18,12 @@
     <link rel="stylesheet" href="{% static 'css/mobile.css' %}" media="screen and (max-width: 768px)">
 
     <script>
-        // Проверяем cookie согласия
         function hasCookieConsent() {
             return document.cookie.split(';').some(function(c) {
                 return c.trim().startsWith('cookie_consent=accepted');
             });
         }
 
-        // Динамическая загрузка Яндекс.Метрики (только после согласия)
         function loadYandexMetrica() {
             if (window._metricaLoaded) return;
             window._metricaLoaded = true;
@@ -44,17 +42,13 @@
             });
         }
 
-        // При загрузке страницы: если согласие уже есть — грузим Метрику сразу
         if (hasCookieConsent()) {
             loadYandexMetrica();
         }
     </script>
 </head>
 <body>
-    <!-- ПОЛОСА ПРОГРЕССА ЧТЕНИЯ -->
     <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Винтажный шум -->
     <div class="vintage-overlay"></div>
 
     <!-- КУРСОР-ЧЕРЕП -->
@@ -77,34 +71,22 @@
                 <img src="{% static 'img/skull.svg' %}" alt="Череп" class="skull-icon">
             {% endfor %}
         </div>
-        <a href="{% url 'index' %}" style="text-decoration: none; display: inline-block;">
-            <h1 style="
-                font-family: 'Impact', 'Arial Black', sans-serif;
-                font-size: 4rem;
-                letter-spacing: 10px;
-                color: #b22222;
-                text-shadow: 0 0 25px rgba(178, 34, 34, 0.6);
-                margin: 10px 0 5px;
-                transition: all 0.3s ease;
-                cursor: pointer;
-            "
-            onmouseover="this.style.textShadow='0 0 40px rgba(178,34,34,0.9)'; this.style.color='#ff3333';"
-            onmouseout="this.style.textShadow='0 0 25px rgba(178,34,34,0.6)'; this.style.color='#b22222';"
-            >OLD REBEL</h1>
+        <a href="{% url 'index' %}">
+            <h1>OLD REBEL</h1>
         </a>
         <p class="subtitle">"I'm gonna break my rusty cage and run" — Johnny Cash</p>
         <hr>
 
         <!-- МЕНЮ -->
-        <nav class="main-nav" style="display: flex; justify-content: center; gap: 30px; margin: 15px 0 5px; flex-wrap: wrap;">
-            <a href="{% url 'index' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Главная</a>
-            <a href="{% url 'about' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">О проекте</a>
-            <a href="{% url 'history' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">История</a>
-            <a href="{% url 'models' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Модели</a>
-            <a href="{% url 'comparison_list' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Сравнительные материалы</a>
-            <a href="{% url 'soa' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Сыны Анархии</a>
-            <a href="{% url 'blog_index' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Блог</a>
-            <a href="{% url 'contact' %}" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif; font-size: 1.2rem; letter-spacing: 1px; padding: 5px 10px; border-bottom: 2px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6666'; this.style.borderBottomColor='#b22222'; this.style.letterSpacing='2px';" onmouseout="this.style.color='#b22222'; this.style.borderBottomColor='transparent'; this.style.letterSpacing='1px';">Контакты</a>
+        <nav class="main-nav">
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'about' %}">О проекте</a>
+            <a href="{% url 'history' %}">История</a>
+            <a href="{% url 'models' %}">Модели</a>
+            <a href="{% url 'comparison_list' %}">Сравнительные материалы</a>
+            <a href="{% url 'soa' %}">Сыны Анархии</a>
+            <a href="{% url 'blog_index' %}">Блог</a>
+            <a href="{% url 'contact' %}">Контакты</a>
         </nav>
     </header>
 
@@ -115,30 +97,30 @@
     </main>
 
     <!-- ПОДВАЛ -->
-    <footer style="border-top: 2px solid #b22222; padding-top: 20px; margin-top: 40px; text-align: center; color: #555; font-size: 0.8rem;">
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px 30px; margin-bottom: 15px;">
+    <footer class="rebel-footer">
+        <div class="footer-links">
             <div>
                 <img src="{% static 'img/skull.svg' %}" alt="Skull" style="width: 20px; height: 20px; filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(178, 34, 34, 0.4));">
             </div>
             <div>
-                <a href="/" style="color: #b22222; text-decoration: none; font-family: 'Impact', sans-serif;">OLD REBEL</a>
+                <a href="/" class="footer-brand">OLD REBEL</a>
             </div>
             <div>
-                <a href="{% url 'sources' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Источники / Sources</a>
+                <a href="{% url 'sources' %}">Источники / Sources</a>
             </div>
             <div>
-                <a href="{% url 'legal' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Юридическая информация / Legal</a>
+                <a href="{% url 'legal' %}">Юридическая информация / Legal</a>
             </div>
             <div>
-                <a href="{% url 'privacy' %}" style="color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#b22222';" onmouseout="this.style.color='#888';">Политика конфиденциальности / Privacy</a>
+                <a href="{% url 'privacy' %}">Политика конфиденциальности / Privacy</a>
             </div>
         </div>
 
-        <p style="color: #666; margin: 5px auto; line-height: 1.5; max-width: 800px;">
+        <p class="footer-legal">
             © 2026 Old Rebel. Все права защищены. Данный сайт является некоммерческим энтузиастским проектом и не связан с Harley-Davidson Motor Company. Все товарные знаки и изображения принадлежат их соответствующим владельцам. Использование материалов осуществляется в ознакомительных и информационных целях на основании принципа добросовестного использования (Fair Use).
         </p>
 
-        <p style="color: #555; margin: 5px auto; line-height: 1.5; max-width: 800px;">
+        <p class="footer-legal-en">
             © 2026 Old Rebel. All rights reserved. This site is a non-commercial enthusiast project and is not affiliated with Harley-Davidson Motor Company. All trademarks and images are the property of their respective owners. Materials are used for informational and educational purposes under the principle of Fair Use.
         </p>
 
@@ -165,7 +147,6 @@
 
     <!-- СТИЛЬ ДЛЯ КУРСОРА-ЧЕРЕПА -->
     <style>
-        /* Череп-курсор */
         .skull-cursor {
             position: fixed;
             top: 0; left: 0;
@@ -177,7 +158,8 @@
             will-change: transform;
             transform: translate(-50%, -50%);
             filter: drop-shadow(0 0 6px rgba(178, 34, 34, 0.8));
-            transition: width 0.2s, height 0.2s;
+            opacity: 0;
+            transition: opacity 0.2s, width 0.2s, height 0.2s;
         }
         .skull-cursor img {
             width: 100%;
@@ -195,7 +177,6 @@
             cursor: none !important;
         }
 
-        /* Тумблер */
         .cursor-toggle {
             position: fixed;
             bottom: 20px;
@@ -244,7 +225,6 @@
             }
         }
 
-        /* Скрываем тумблер и курсор на тач-устройствах */
         @media (hover: none) {
             .cursor-toggle,
             .skull-cursor {
@@ -256,18 +236,15 @@
     <script>
         // === КУРСОР-ЧЕРЕП ===
         (function() {
-            // На тач-устройствах не работает
             var isTouch = window.matchMedia('(hover: none)').matches;
             if (isTouch) return;
 
-            // Уважаем настройки пользователя
             var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             var cursor = document.getElementById('skullCursor');
             var toggle = document.getElementById('cursorToggleCheckbox');
             if (!cursor || !toggle) return;
 
-            // Инициализируем координаты центром экрана
             var mouseX = window.innerWidth / 2;
             var mouseY = window.innerHeight / 2;
             var cursorX = mouseX;
@@ -275,7 +252,6 @@
             var isActive = false;
             var hasMoved = false;
 
-            // Проверяем localStorage
             var saved = localStorage.getItem('skull_cursor');
             if (saved === 'on' && !prefersReduced) {
                 toggle.checked = true;
@@ -287,7 +263,6 @@
                 cursor.classList.add('active');
                 document.body.classList.add('skull-cursor-on');
 
-                // Сразу ставим череп в центр экрана и делаем видимым
                 cursorX = window.innerWidth / 2;
                 cursorY = window.innerHeight / 2;
                 cursor.style.opacity = '1';
@@ -303,12 +278,10 @@
                 document.body.classList.remove('skull-cursor-on');
             }
 
-            // Движение мыши
             document.addEventListener('mousemove', function(e) {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
 
-                // При первом движении — мгновенно перемещаем череп к мыши
                 if (!hasMoved) {
                     hasMoved = true;
                     cursorX = mouseX;
@@ -317,7 +290,6 @@
                 }
             });
 
-            // Плавное следование через requestAnimationFrame
             function loop() {
                 if (!isActive) return;
                 cursorX += (mouseX - cursorX) * 0.25;
@@ -326,7 +298,6 @@
                 requestAnimationFrame(loop);
             }
 
-            // Увеличение на ссылках и кнопках
             document.addEventListener('mouseover', function(e) {
                 if (!isActive) return;
                 if (e.target.closest('a, button, input, textarea, select, .bike-card, .related-card')) {
@@ -340,7 +311,6 @@
                 }
             });
 
-            // Тумблер
             toggle.addEventListener('change', function() {
                 if (toggle.checked) {
                     localStorage.setItem('skull_cursor', 'on');
