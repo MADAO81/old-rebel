@@ -11,109 +11,58 @@
     {% include 'breadcrumbs.html' with breadcrumbs=breadcrumbs %}
 
     <!-- ЗАГОЛОВОК -->
-    <section style="
-        background: #1a1c1e;
-        padding: 25px;
-        border-radius: 8px;
-        border-left: 6px solid #b22222;
-        margin-bottom: 30px;
-    ">
-        <h1 style="color: #c0b090; font-family: 'Georgia', serif; font-size: 2.5rem; margin: 0;">
-            {{ bike.name }}
-        </h1>
-        <div style="color: #b22222; font-family: 'Impact', sans-serif; font-size: 1.8rem; letter-spacing: 3px;">
-            {{ bike.code }}
-        </div>
-        <div style="color: #888; font-size: 1rem; margin-top: 5px;">
-            {{ bike.years }}
-        </div>
+    <section class="bike-title-block">
+        <h1 class="bike-title-name">{{ bike.name }}</h1>
+        <div class="bike-title-code">{{ bike.code }}</div>
+        <div class="bike-title-years">{{ bike.years }}</div>
     </section>
 
     <!-- ФОТО МОДЕЛИ -->
     {% if bike.image %}
-    <section style="margin-bottom: 30px;">
-        <div style="border: 2px solid #b22222; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(178, 34, 34, 0.3);">
-            <img loading="lazy" src="{{ bike.image.url }}" alt="{{ bike.name }}" style="display: block; width: 100%; height: auto;">
+    <section class="bike-photo-block">
+        <div class="bike-photo-wrapper">
+            <img loading="lazy" src="{{ bike.image.url }}" alt="{{ bike.name }}">
         </div>
         {% if bike.photo_credit %}
-        <p style="color: #666; font-size: 0.8rem; font-style: italic; text-align: center; margin-top: 10px;">
-            {{ bike.photo_credit }}
-        </p>
+        <p class="bike-photo-credit">{{ bike.photo_credit }}</p>
         {% endif %}
     </section>
     {% endif %}
 
     <!-- ОСНОВНАЯ ИНФОРМАЦИЯ (три колонки) -->
-    <section style="
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        background: #14181c;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid #2a2c2e;
-        margin-bottom: 30px;
-    ">
-        <div style="text-align: center;">
-            <div style="color: #666; font-size: 0.8rem; letter-spacing: 1px;">МОДЕЛЬНЫЙ КОД</div>
-            <div style="color: #b22222; font-family: 'Impact', sans-serif; font-size: 1.8rem;">{{ bike.code }}</div>
+    <section class="bike-specs">
+        <div class="bike-spec-item">
+            <div class="bike-spec-label">МОДЕЛЬНЫЙ КОД</div>
+            <div class="bike-spec-value-code">{{ bike.code }}</div>
         </div>
-        <div style="text-align: center;">
-            <div style="color: #666; font-size: 0.8rem; letter-spacing: 1px;">ГОДЫ ВЫПУСКА</div>
-            <div style="color: #c0b090; font-size: 1.3rem;">{{ bike.years }}</div>
+        <div class="bike-spec-item">
+            <div class="bike-spec-label">ГОДЫ ВЫПУСКА</div>
+            <div class="bike-spec-value-years">{{ bike.years }}</div>
         </div>
-        <div style="text-align: center;">
-            <div style="color: #666; font-size: 0.8rem; letter-spacing: 1px;">ДВИГАТЕЛЬ</div>
-            <div style="color: #c0b090; font-size: 1rem;">{{ bike.engine }}</div>
+        <div class="bike-spec-item">
+            <div class="bike-spec-label">ДВИГАТЕЛЬ</div>
+            <div class="bike-spec-value-engine">{{ bike.engine }}</div>
         </div>
     </section>
 
     <!-- ОПИСАНИЕ -->
-    <section style="
-        background: #1a1c1e;
-        padding: 25px;
-        border-radius: 8px;
-        border: 1px solid #2a2c2e;
-        margin-bottom: 30px;
-    ">
-        <h3 style="color: #c0b090; font-family: 'Impact', sans-serif; letter-spacing: 2px; margin-top: 0; border-bottom: 1px solid #2a2c2e; padding-bottom: 10px;">
-            ОПИСАНИЕ
-        </h3>
-        <div style="color: #aaa; line-height: 1.8; font-size: 1.05rem;">
+    <section class="bike-description">
+        <h3 class="bike-description-title">ОПИСАНИЕ</h3>
+        <div class="bike-description-content">
             {{ bike.description|linebreaks }}
         </div>
     </section>
 
-    <!-- БЛОК "ИНТЕРЕСНО ЗНАТЬ" (если есть фото или предшественник) -->
+    <!-- БЛОК "ИНТЕРЕСНО ЗНАТЬ" (если есть предшественник) -->
     {% if bike.is_predecessor or bike.previous_model %}
-    <section style="
-        background: #14181c;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid #2a2c2e;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        align-items: center;
-        margin-bottom: 30px;
-    ">
+    <section class="bike-predecessor-block">
         {% if bike.is_predecessor %}
-        <div style="
-            background: #b22222;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 1px;
-        ">
-            ⚡ ПРЕДШЕСТВЕННИК DYNA
-        </div>
+        <div class="bike-predecessor-badge">⚡ ПРЕДШЕСТВЕННИК DYNA</div>
         {% endif %}
 
         {% if bike.previous_model %}
-        <div style="color: #888; font-size: 0.9rem;">
-            Предшественник: <a href="{% url 'bike_detail' bike.previous_model.slug %}" style="color: #b22222; text-decoration: none;">{{ bike.previous_model.name }}</a>
+        <div class="bike-predecessor-link">
+            Предшественник: <a href="{% url 'bike_detail' bike.previous_model.slug %}">{{ bike.previous_model.name }}</a>
         </div>
         {% endif %}
     </section>
@@ -123,7 +72,7 @@
     {% include 'includes/related_articles.html' with related_articles=related_articles %}
 
     <!-- КНОПКА "НАЗАД" -->
-    <div style="text-align: center; margin-top: 40px;">
+    <div class="bike-back-btn-wrap">
         <a href="{% url 'models' %}" class="btn-fill" style="
             display: inline-block;
             padding: 12px 40px;
