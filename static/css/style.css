@@ -1973,3 +1973,216 @@ body:not([data-theme="light"]) .quote-block {
     box-shadow: none !important;
     border-left: 6px solid var(--color-red) !important;
 }
+/* === СВЕТЛАЯ ТЕМА: ЧЕРЕПА (Вариант Б — CSS-фильтр) === */
+/* В тёмной теме черепа белые (инвертированные), в светлой — красные */
+[data-theme="light"] .skull-icon {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) drop-shadow(0 0 4px rgba(178, 34, 34, 0.6)) !important;
+}
+
+[data-theme="light"] .skull-icon:hover {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) drop-shadow(0 0 8px rgba(178, 34, 34, 1)) !important;
+}
+
+/* Черепок в подвале (маленький) */
+[data-theme="light"] .footer-skull-small {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) drop-shadow(0 0 2px rgba(178, 34, 34, 0.6)) !important;
+}
+
+/* Курсор-череп */
+[data-theme="light"] .skull-cursor {
+    filter: drop-shadow(0 0 4px rgba(178, 34, 34, 0.8)) !important;
+}
+
+[data-theme="light"] .skull-cursor img {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) !important;
+}
+
+/* Тумблеры (чтобы не сливались с белым фоном) */
+[data-theme="light"] .cursor-toggle,
+[data-theme="light"] .theme-toggle-wrapper {
+    background: rgba(250, 246, 236, 0.9) !important;
+    border-color: #d4c9b2 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .cursor-toggle-text,
+[data-theme="light"] .theme-toggle-text {
+    color: #333 !important;
+}
+
+[data-theme="light"] .theme-slider {
+    background-color: #e5dcc5 !important;
+    border-color: #d4c9b2 !important;
+}
+
+[data-theme="light"] .theme-slider:before {
+    background-color: #faf6ec !important;
+}
+/* === СВЕТЛАЯ ТЕМА (База) === */
+[data-theme="light"] {
+    --color-bg: #f8f6f0; /* Тёплый белый */
+    --color-bg-card: #ffffff; /* Белые карточки */
+    --color-bg-deep: #f4f0e6; /* Чуть темнее для блоков */
+    --color-bg-dark: #e8e0d0; /* Для инпутов */
+
+    --color-text: #2a2a2a; /* Тёмно-серый */
+    --color-text-dim: #444;
+    --color-text-muted: #666;
+    --color-text-faint: #888;
+    --color-text-dark: #555;
+
+    --color-red: #b22222;
+    --color-red-bright: #d32f2f;
+    --color-red-hover: #e53935;
+    --color-red-deep: #8b1a1a;
+    --color-gold: #8b6f47;
+
+    --color-border: #d0c8b8;
+    --color-border-red: #b22222;
+
+    --shadow-red: 0 0 20px rgba(178, 34, 34, 0.3);
+    --shadow-dark: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Тумблер темы */
+.theme-toggle-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 220px;
+    z-index: 9998;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.theme-toggle-wrapper:hover { border-color: var(--color-red); box-shadow: 0 0 20px rgba(178, 34, 34, 0.3); }
+.theme-toggle-label { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+.theme-toggle-text { color: var(--color-text-dim); font-family: var(--font-impact); font-size: 0.85rem; letter-spacing: 1px; white-space: nowrap; }
+
+/* Пружинный тумблер */
+.theme-switch { position: relative; width: 52px; height: 28px; flex-shrink: 0; }
+.theme-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.theme-slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--color-bg-dark); border: 1px solid var(--color-border);
+    transition: background-color 0.4s, border-color 0.4s; border-radius: 28px;
+}
+.theme-slider:before {
+    position: absolute; content: "☀️"; height: 22px; width: 22px; left: 2px; bottom: 2px;
+    background-color: var(--color-bg-card);
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.theme-switch input:checked + .theme-slider { background-color: var(--color-red); border-color: var(--color-red); }
+.theme-switch input:checked + .theme-slider:before { transform: translateX(24px); content: "🌙"; }
+
+@media (max-width: 768px) { .theme-toggle-wrapper { right: 12px; bottom: 60px; padding: 8px 12px; } .theme-toggle-text { font-size: 0.75rem; } }
+@media (hover: none) { .theme-toggle-wrapper { display: none !important; } }
+
+/* Черепа в светлой теме (Вариант Б — фильтр) */
+[data-theme="light"] .skull-icon {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) drop-shadow(0 0 4px rgba(178, 34, 34, 0.6)) !important;
+}
+[data-theme="light"] .skull-icon:hover {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) drop-shadow(0 0 8px rgba(178, 34, 34, 1)) !important;
+}
+[data-theme="light"] .footer-skull-small {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) drop-shadow(0 0 2px rgba(178, 34, 34, 0.6)) !important;
+}
+[data-theme="light"] .skull-cursor {
+    filter: drop-shadow(0 0 4px rgba(178, 34, 34, 0.8)) !important;
+}
+[data-theme="light"] .skull-cursor img {
+    filter: brightness(0) invert(27%) sepia(98%) saturate(1739%) hue-rotate(343deg) !important;
+}
+
+/* Тумблеры в светлой теме */
+[data-theme="light"] .cursor-toggle,
+[data-theme="light"] .theme-toggle-wrapper {
+    background: rgba(250, 246, 236, 0.9) !important;
+    border-color: #d4c9b2 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+[data-theme="light"] .cursor-toggle-text,
+[data-theme="light"] .theme-toggle-text {
+    color: #333 !important;
+}
+[data-theme="light"] .theme-slider {
+    background-color: #e5dcc5 !important;
+    border-color: #d4c9b2 !important;
+}
+[data-theme="light"] .theme-slider:before {
+    background-color: #faf6ec !important;
+}
+/* === ФИКС ФОНА ДЛЯ СВЕТЛОЙ ТЕМЫ === */
+[data-theme="light"] body {
+    background-color: var(--color-bg) !important;
+    color: var(--color-text) !important;
+}
+
+/* И для всех карточек/блоков, чтобы они тоже стали светлыми */
+[data-theme="light"] .bike-card,
+[data-theme="light"] .related-card,
+[data-theme="light"] .comparison-card,
+[data-theme="light"] .blog-card,
+[data-theme="light"] .quote-block,
+[data-theme="light"] .history-section,
+[data-theme="light"] .contact-email-box,
+[data-theme="light"] .contact-form-wrapper,
+[data-theme="light"] .bike-title-block,
+[data-theme="light"] .bike-specs,
+[data-theme="light"] .bike-description,
+[data-theme="light"] .bike-predecessor-block,
+[data-theme="light"] .home-photo-card {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border) !important;
+}
+
+/* И для инпутов в контактах */
+[data-theme="light"] .form-input,
+[data-theme="light"] .form-textarea {
+    background: var(--color-bg-dark) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-border) !important;
+}
+
+/* === ЦЕЛОСТНОСТЬ ЧЕРЕПОВ === */
+/* В тёмной теме все черепа белые с красным свечением */
+.skull-icon,
+.footer-skull-row,
+.footer-skull-small {
+    filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(178, 34, 34, 0.8)) !important;
+    opacity: 1 !important;
+}
+
+/* === ФИКС ЦВЕТА ЧЕРЕПОВ (В ТОН ШРИФТУ) === */
+[data-theme="light"] .skull-icon,
+[data-theme="light"] .footer-skull-row,
+[data-theme="light"] .footer-skull-small {
+    /* Подбираем фильтр, чтобы получить цвет #b22222 */
+    filter: brightness(0) saturate(100%) invert(18%) sepia(89%) saturate(2474%) hue-rotate(345deg) brightness(84%) contrast(97%) drop-shadow(0 0 4px rgba(178, 34, 34, 0.4)) !important;
+    opacity: 1 !important;
+}
+
+/* Размеры для черепов в подвале (чтобы не были огромными) */
+.footer-skull-row {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.footer-skull-small {
+    width: 20px !important;
+    height: 20px !important;
+}
+/* === ФИКС КУРСОРА-ЧЕРЕПА В СВЕТЛОЙ ТЕМЕ === */
+[data-theme="light"] .skull-cursor {
+    filter: drop-shadow(0 0 6px rgba(178, 34, 34, 0.8)) !important;
+}
+
+[data-theme="light"] .skull-cursor img {
+    /* Тот же фильтр, что и у черепов, чтобы цвет совпадал */
+    filter: brightness(0) saturate(100%) invert(18%) sepia(89%) saturate(2474%) hue-rotate(345deg) brightness(84%) contrast(97%) !important;
+}
