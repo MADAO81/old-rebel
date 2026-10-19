@@ -67,7 +67,7 @@
                 <span>{{ bike.engine|truncatechars:40 }}</span>
             </div>
 
-            <p class="bike-card-desc">{{ bike.description|truncatechars:120 }}</p>
+            <p class="bike-card-desc">{{ bike.description|striptags|truncatechars:120 }}</p>
 
             <div class="bike-card-link-wrap">
                 <a href="{% url 'bike_detail' bike.slug %}" class="bike-card-link">ПОДРОБНЕЕ →</a>
