@@ -1,6 +1,5 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /legal/
 Disallow: /static/
 Allow: /
 
